@@ -4,20 +4,20 @@ import { Star } from 'lucide-react';
 const testimonials = [
   {
     name: "Dr. Sarah Johnson",
-    role: "Medical Director, Valley Health Clinic",
-    content: "The AI-powered RCM solution has transformed our billing process. We've seen a 40% reduction in claim denials and our revenue has increased significantly.",
+    role: "Dental Practice Owner, Bright Smile Dental",
+    content: "The AI-powered dental billing solution has transformed our practice. We've seen a 40% reduction in insurance claim denials and our revenue has increased significantly.",
     rating: 5
   },
   {
     name: "Mark Thompson",
-    role: "CEO, MedCare Solutions",
-    content: "Outstanding platform! The automation capabilities have streamlined our operations and the analytics provide invaluable insights for decision-making.",
+    role: "Office Manager, Thompson Dental Group",
+    content: "Outstanding dental platform! The automation capabilities have streamlined our front desk operations and the analytics provide invaluable insights for practice management.",
     rating: 5
   },
   {
     name: "Dr. Emily Chen",
-    role: "Owner, Family Care Practice",
-    content: "The implementation was smooth and the support team is exceptional. Our claims are processed faster and more accurately than ever before.",
+    role: "Orthodontist, Perfect Smiles Orthodontics",
+    content: "The implementation was smooth and the support team is exceptional. Our dental insurance claims are processed faster and more accurately than ever before.",
     rating: 5
   }
 ];
@@ -33,7 +33,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Success Stories
+            Dental Practice Success Stories
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -42,7 +42,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            What Our Clients Say
+            What Our Dental Clients Say
           </motion.h2>
         </div>
 

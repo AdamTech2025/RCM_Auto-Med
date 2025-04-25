@@ -13,43 +13,43 @@ import {
 const features = [
   {
     icon: <LineChart className="w-12 h-12 text-primary" />,
-    title: "Real-time Analytics",
-    description: "Track key performance indicators, revenue trends, and claim status in real-time with our intuitive analytics dashboard."
+    title: "Dental Practice Analytics",
+    description: "Track dental procedure revenues, patient appointments, and insurance claim status in real-time with our intuitive analytics dashboard."
   },
   {
     icon: <ClipboardCheck className="w-12 h-12 text-primary" />,
-    title: "Automated Verification",
-    description: "Streamline eligibility verification and benefits checking with our automated system, reducing manual workload by 85%."
+    title: "Automated Insurance Verification",
+    description: "Streamline dental insurance eligibility verification and benefits checking with our automated system, reducing front desk workload by 85%."
   },
   {
     icon: <Clock className="w-12 h-12 text-primary" />,
-    title: "Faster Claims Processing",
-    description: "Reduce claim processing time by up to 75% with AI-powered validation and automated submission systems."
+    title: "Faster Dental Claims Processing",
+    description: "Reduce dental claim processing time by up to 75% with AI-powered validation and automated submission systems customized for dental procedures."
   },
   {
     icon: <DollarSign className="w-12 h-12 text-primary" />,
-    title: "Revenue Optimization",
-    description: "Maximize reimbursements with intelligent charge capture and dynamic pricing optimization."
+    title: "Dental Revenue Optimization",
+    description: "Maximize reimbursements with intelligent procedure coding and dynamic pricing optimization for your dental practice."
   },
   {
     icon: <Shield className="w-12 h-12 text-primary" />,
-    title: "Compliance Assurance",
-    description: "Stay compliant with automatic updates to coding rules and regulatory requirements."
+    title: "Dental Compliance Assurance",
+    description: "Stay compliant with automatic updates to dental CDT coding rules and regulatory requirements specific to dental practices."
   },
   {
     icon: <BarChart className="w-12 h-12 text-primary" />,
-    title: "Performance Metrics",
-    description: "Track and improve key RCM metrics including Days in AR, Clean Claim Rate, and Collection Rate."
+    title: "Practice Performance Metrics",
+    description: "Track and improve key dental metrics including Days in AR, Clean Claim Rate, and Production-to-Collection Ratio."
   },
   {
     icon: <Users className="w-12 h-12 text-primary" />,
-    title: "Patient Engagement",
-    description: "Enhance patient satisfaction with transparent billing processes and multiple payment options."
+    title: "Dental Patient Engagement",
+    description: "Enhance patient satisfaction with transparent dental billing processes and multiple payment options for procedures."
   },
   {
     icon: <Award className="w-12 h-12 text-primary" />,
     title: "Best-in-Class Support",
-    description: "24/7 expert support and continuous training to ensure maximum value from our RCM solution."
+    description: "24/7 expert support and continuous training to ensure maximum value from our dental practice management solution."
   }
 ];
 
@@ -64,7 +64,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Comprehensive RCM Features
+            Comprehensive Dental Practice Features
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -73,7 +73,7 @@ export default function Features() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Everything You Need for Revenue Cycle Excellence
+            Everything You Need for Dental Practice Excellence
           </motion.h2>
         </div>
 

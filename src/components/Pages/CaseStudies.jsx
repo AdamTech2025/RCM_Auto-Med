@@ -3,23 +3,23 @@ import { ArrowRight, TrendingUp, Clock, DollarSign } from 'lucide-react';
 
 const caseStudies = [
   {
-    title: "Large Hospital Network",
-    challenge: "Managing complex billing across 12 locations with high denial rates",
-    solution: "Implemented AI-powered RCM system with centralized dashboard",
+    title: "Multi-Location Dental Group",
+    challenge: "Managing complex dental billing across 6 locations with high insurance denial rates",
+    solution: "Implemented AI-powered dental billing system with centralized dashboard",
     results: [
-      { icon: <TrendingUp />, text: "45% reduction in denial rates" },
-      { icon: <Clock />, text: "60% faster claim processing" },
-      { icon: <DollarSign />, text: "32% increase in revenue" }
+      { icon: <TrendingUp />, text: "45% reduction in dental claim denials" },
+      { icon: <Clock />, text: "60% faster dental insurance processing" },
+      { icon: <DollarSign />, text: "10% increase in practice revenue" }
     ]
   },
   {
-    title: "Multi-Specialty Clinic",
-    challenge: "Manual coding process leading to errors and delayed payments",
-    solution: "Automated coding with AI and real-time verification",
+    title: "Small Dental Practices",
+    challenge: "Manual coding process leading to errors and delayed insurance payments",
+    solution: "Automated CDT coding with AI and real-time verification",
     results: [
-      { icon: <TrendingUp />, text: "95% clean claim rate" },
-      { icon: <Clock />, text: "75% reduction in manual work" },
-      { icon: <DollarSign />, text: "28% increase in collections" }
+      { icon: <TrendingUp />, text: "95% clean dental claim rate" },
+      { icon: <Clock />, text: "75% reduction in front desk workload" },
+      { icon: <DollarSign />, text: "8% increase in collections from insurance" }
     ]
   }
 ];
@@ -35,7 +35,7 @@ export default function CaseStudies() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Success Stories
+            Dental Practice Success Stories
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -44,7 +44,7 @@ export default function CaseStudies() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Real Results from Real Clients
+            Real Results from Real Dental Practices
           </motion.h2>
         </div>
 

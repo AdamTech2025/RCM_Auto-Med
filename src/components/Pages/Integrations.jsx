@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
-import { 
-  FaAmazon,
-  FaWindows,
-  FaDatabase,
-  FaGoogle,
-  FaCloud,
-  FaVideo,
-  FaGamepad,
-  FaCode,
-  FaRobot,
-  FaSlack,
-  FaPhone,
-  FaCreditCard
-} from "react-icons/fa";
+
+// Import dental logo images
+import dentrixLogo from "../../assets/Dental Logos/Dentrix-logo.png";
+import eaglesoftLogo from "../../assets/Dental Logos/eaglesoft-logo.png";
+import openDentalLogo from "../../assets/Dental Logos/open-dental.webp";
+import curveDentalLogo from "../../assets/Dental Logos/CurveDental_New Logos_square full color on transp (1)-1.webp";
+import carestreamLogo from "../../assets/Dental Logos/carestream-dental-logo.png";
+import denticonLogo from "../../assets/Dental Logos/denticon.webp";
+import abeldentLogo from "../../assets/Dental Logos/abeldent.webp";
+import tab32Logo from "../../assets/Dental Logos/tab-logo-dark.png";
+import dentiMaxLogo from "../../assets/Dental Logos/DentiMax-Logo-Retina.png.webp";
+import aceDentalLogo from "../../assets/Dental Logos/Ace Dental88b249b2-ee09-485b-9d3c-6ee6142035fb.webp";
+import dentalMasterLogo from "../../assets/Dental Logos/cropped-dentalMaster-logo-08.png";
+import iDentalSoftLogo from "../../assets/Dental Logos/idslogo_color_220x37dp.png";
 
 export default function Integrations() {
   const integrations = [
-    { icon: FaAmazon, name: "Amazon AWS", color: "#FF9900" },
-    { icon: FaWindows, name: "Microsoft Azure", color: "#0078D4" },
-    { icon: FaDatabase, name: "Oracle Cloud", color: "#F80000" },
-    { icon: FaGoogle, name: "Google Cloud", color: "#4285F4" },
-    { icon: FaCloud, name: "Salesforce", color: "#00A1E0" },
-    { icon: FaVideo, name: "Zoom", color: "#2D8CFF" },
-    { icon: FaGamepad, name: "Epic", color: "#313131" },
-    { icon: FaCode, name: "Webflow", color: "#4353FF" },
-    { icon: FaRobot, name: "OpenAI", color: "#412991" },
-    { icon: FaSlack, name: "Slack", color: "#4A154B" },
-    { icon: FaPhone, name: "Twilio", color: "#F22F46" },
-    { icon: FaCreditCard, name: "Stripe", color: "#635BFF" }
+    { logo: dentrixLogo, name: "Dentrix" },
+    { logo: eaglesoftLogo, name: "Eaglesoft" },
+    { logo: openDentalLogo, name: "Open Dental" },
+    { logo: curveDentalLogo, name: "Curve Dental" },
+    { logo: carestreamLogo, name: "Carestream Dental" },
+    { logo: denticonLogo, name: "Denticon" },
+    { logo: abeldentLogo, name: "ABELDent" },
+    { logo: tab32Logo, name: "Tab32" },
+    { logo: dentiMaxLogo, name: "DentiMax" },
+    { logo: aceDentalLogo, name: "Ace Dental" },
+    { logo: dentalMasterLogo, name: "DentalMaster" },
+    { logo: iDentalSoftLogo, name: "iDentalSoft" }
   ];
 
   const containerVariants = {
@@ -75,7 +75,7 @@ export default function Integrations() {
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Adam Technologies integrates with your practice management software
+            Our Software integrates with your practice management software
           </motion.h2>
           <motion.p
             className="text-gray-600 mt-4 max-w-2xl mx-auto"
@@ -105,8 +105,12 @@ export default function Integrations() {
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
               }}
             >
-              <div className="relative mb-3 p-3 rounded-full bg-gray-50">
-                <item.icon className="w-8 h-8" style={{ color: item.color }} />
+              <div className="flex items-center justify-center h-16 mb-3">
+                <img 
+                  src={item.logo} 
+                  alt={`${item.name} logo`} 
+                  className="max-h-full max-w-full object-contain"
+                />
               </div>
               <span className="text-xs font-medium text-gray-700 text-center">{item.name}</span>
             </motion.div>

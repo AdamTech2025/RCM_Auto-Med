@@ -39,7 +39,7 @@ const HomePage = () => {
         blurStrength={8}
         containerClassName="text-center py-12 bg-gradient-to-r from-primary/5 to-blue-500/5"
       >
-        Transform your healthcare revenue cycle with AI-powered solutions that deliver results
+        Transform your dental practice revenue with AI-powered solutions that deliver results
       </ScrollReveal>
       <HowItWorks />
       <Features />
@@ -50,7 +50,7 @@ const HomePage = () => {
         blurStrength={6}
         containerClassName="text-center py-12"
       >
-        Trusted by leading healthcare providers worldwide to optimize their revenue cycle
+        Trusted by leading dental practices worldwide to optimize their billing workflow
       </ScrollReveal>
       <Benefits />
       <Integrations />

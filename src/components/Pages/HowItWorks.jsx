@@ -23,26 +23,26 @@ const steps = [
   {
     id: "01",
     icon: <Code2 className="w-8 h-8" />,
-    title: "CODING.AI",
-    description: "Intelligent medical coding automation that assigns ICD-10, CPT, HCPCS codes with AI precision, understanding clinical context for improved accuracy."
+    title: "DENTALCODING.AI",
+    description: "Intelligent dental coding automation that assigns CDT and ICD-10 codes with AI precision, understanding clinical context for improved accuracy."
   },
   {
     id: "02",
     icon: <FileText className="w-8 h-8" />,
-    title: "BILLING.AI",
-    description: "Smart medical billing solutions that automate charge capture, eligibility checks, and claim generation while predicting and preventing denials."
+    title: "DENTALBILLING.AI",
+    description: "Smart dental billing solutions that automate charge capture, insurance verification, and claim generation while predicting and preventing denials."
   },
   {
     id: "03",
     icon: <Shield className="w-8 h-8" />,
-    title: "CODECOMPLIANCE.AI",
-    description: "AI-driven compliance system that analyzes medical codes against payer rules and CMS guidelines, ensuring audit readiness."
+    title: "DENTALCOMPLIANCE.AI",
+    description: "AI-driven compliance system that analyzes dental codes against insurance rules and regulatory guidelines, ensuring audit readiness."
   },
   {
     id: "04",
     icon: <Stethoscope className="w-8 h-8" />,
-    title: "CLINICAL.AI",
-    description: "Smart clinical data extraction using Medical Language Processing to support diagnostic decision-making and clinical trial matching."
+    title: "ORALCARE.AI",
+    description: "Smart dental data extraction using specialized language processing to support treatment planning and clinical decision-making."
   }
 ];
 
@@ -68,7 +68,7 @@ export default function HowItWorks() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              AI-Powered Healthcare APIs
+              AI-Powered Dental Practice APIs
             </motion.h2>
           </div>
 
