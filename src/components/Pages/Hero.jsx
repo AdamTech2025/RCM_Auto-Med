@@ -85,7 +85,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Social Proof */}
-          <motion.div 
+          {/* <motion.div 
             className="mt-20 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export default function Hero() {
               <img src={logo2} alt="Client Logo" className="h-10 md:h-12 object-contain" />
               <img src={logo3} alt="Client Logo" className="h-10 md:h-12 object-contain" />
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
     </FluidBackground>
