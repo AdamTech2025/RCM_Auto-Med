@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import CountUp from '../UI/CountUp';
+import ScrollReveal from '../UI/ScrollReveal';
 
 const benefits = [
   {
@@ -93,6 +94,16 @@ export default function Benefits() {
         >
           <p className="text-sm text-gray-500">*Based on average dental customer results after implementing our solution</p>
         </motion.div>
+
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={-3}
+          blurStrength={6}
+          containerClassName="text-center py-12 mt-12"
+        >
+          Trusted by leading dental practices worldwide to optimize their billing workflow
+        </ScrollReveal>
       </div>
     </section>
   );
