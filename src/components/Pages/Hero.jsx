@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Stethoscope, TrendingUp, Briefcase, Users, BarChartBig, ShieldCheck } from "lucide-react";
 
 export default function Hero() {
@@ -63,14 +64,20 @@ export default function Hero() {
               The future of healthcare is evolving. Are you ready for the
               change?
             </p>
-            <motion.a
-              href="contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-4 px-10 rounded-md text-lg uppercase tracking-wider shadow-lg transition-colors duration-300 inline-block text-center"
-            >
-              SHOW ME THE FUTURE
-            </motion.a>
+            <motion.div>
+              <Link 
+                to="/contact"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-4 px-10 rounded-md text-lg uppercase tracking-wider shadow-lg transition-colors duration-300 inline-block text-center"
+              >
+                <motion.span
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-block"
+                >
+                  SHOW ME THE FUTURE
+                </motion.span>
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Right Column: Benefits List */}
