@@ -1,10 +1,11 @@
 import React from 'react';
+import grp_pic from '../../assets/grp_1.jpg';
 
 export default function DentalCPA() {
   return (
     <div className="bg-black/12 min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[350px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/dental-accounting-bg.jpg')" }}>
+      <div className="relative h-[350px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${grp_pic})` }}>
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 drop-shadow-lg">Dental Accounting Group</h1>

@@ -45,10 +45,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Brand */}
         <NavLink to="/" className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary via-blue-500 to-blue-600 rounded-xl shadow-lg relative overflow-hidden">
+          {/* <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary via-blue-500 to-blue-600 rounded-xl shadow-lg relative overflow-hidden">
             <Activity className="w-6 h-6 text-white absolute opacity-20 -right-1 top-0 rotate-12" />
             <Brain className="w-6 h-6 text-white relative z-10" />
-          </div>
+          </div> */}
           <div className="flex flex-col">
             <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Adam Rev Max</span>
             <span className="text-xs text-primary font-medium -mt-1 tracking-wide">AI Healthcare Solutions</span>
