@@ -9,95 +9,45 @@ import logo3 from "../../assets/IMedX_Logo.png";
 export default function Hero() {
   return (
     <FluidBackground>
-      <section className="pt-32 pb-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center mb-20">
-            <motion.div 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h1 className="mb-4">
-                Transform Your Dental Practice with
-              </h1>
-              <span className="text-primary block">
-                Automated Dental Coding & Billing AI
-              </span>
-            </motion.div>
-            <motion.div 
-              className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <p>Comprehensive dental practice management solutions powered by advanced AI technology</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex justify-center items-center gap-6"
-            >
-              <a 
-                href="https://automed.adamtechnologies.in/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-lg font-medium inline-flex items-center gap-2 transition-all shadow-lg hover:shadow-primary/30"
-              >
-                Try Now <ArrowRight className="w-4 h-4" />
-              </a>
-              {/* <button className="py-2 px-6 inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors">
-                Learn More <ArrowRight className="w-4 h-4" />
-              </button> */}
-            </motion.div>
+      <section className="relative min-h-screen flex items-center justify-center bg-black/25 bg-blend-overlay" style={{ backgroundImage: 'url(/your-bg.jpg)', backgroundSize: 'cover' }}>
+        <div className="container mx-auto px-4 py-20 flex flex-col md:flex-row gap-12 items-center justify-center">
+          {/* Left: Pitch */}
+          <div className="md:w-1/2 text-white">
+            <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+              Why we are <span className="italic text-primary">different?</span>
+            </h2>
+            <p className="text-lg mb-6 font-light">
+              We are the only outsourcing dental billing company which offers not only <span className="font-semibold italic">dental practice management</span> but also:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-lg font-light text-black">
+              <li>Dental Billing – <span className="italic font-semibold">Billing team all USA based</span></li>
+              <li>Patient Recare Program (new service)</li>
+              <li>Dental Consulting</li>
+              <li>Dental Practice Management Services</li>
+              <li>Search Engine Optimization</li>
+              <li>Website Design</li>
+              <li>Team Training</li>
+            </ul>
+            <a href="/services" className="mt-8 inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">VISIT SERVICES PAGE</a>
           </div>
-
-          <motion.div 
-            className="flex flex-col items-center gap-8 max-w-5xl mx-auto md:grid md:grid-cols-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-gray-100 w-full max-w-sm md:max-w-none text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <Clock className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Save Time</h3>
-              <p className="text-gray-600">Automate dental claims and reduce front desk workload by up to 70%</p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-gray-100 w-full max-w-sm md:max-w-none text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <DollarSign className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Reduce Costs</h3>
-              <p className="text-gray-600">Cut dental billing expenses by 40% with automated insurance verification</p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-gray-100 w-full max-w-sm md:max-w-none text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <ChartBar className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Boost Efficiency</h3>
-              <p className="text-gray-600">Improve patient care while increasing dental practice productivity</p>
-            </div>
-          </motion.div>
-
-          {/* Social Proof */}
-          {/* <motion.div 
-            className="mt-20 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <p className="text-sm text-gray-500 mb-4">Trusted by leading dental practices</p>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
-              <img src={logo1} alt="Client Logo" className="h-16 md:h-28 object-contain" />
-              <img src={logo2} alt="Client Logo" className="h-10 md:h-12 object-contain" />
-              <img src={logo3} alt="Client Logo" className="h-10 md:h-12 object-contain" />
-            </div>
-          </motion.div> */}
+          {/* Right: Form */}
+          <div className="md:w-1/2 bg-white/10 backdrop-blur-lg rounded-2xl p-10 shadow-2xl border border-white/20 max-w-md w-full">
+            <h3 className="text-4xl font-serif font-bold text-white mb-8 text-center">Get a quote</h3>
+            <form className="space-y-6">
+              <input type="text" placeholder="Full Name *" className="w-full px-5 py-3 rounded-lg bg-white/80 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary" />
+              <input type="email" placeholder="Email *" className="w-full px-5 py-3 rounded-lg bg-white/80 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary" />
+              <input type="tel" placeholder="Phone No. *" className="w-full px-5 py-3 rounded-lg bg-white/80 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary" />
+              <select className="w-full px-5 py-3 rounded-lg bg-white/80 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+                <option>Service Needed*</option>
+                <option>Dental Billing</option>
+                <option>Practice Management</option>
+                <option>SEO</option>
+                <option>Website Design</option>
+              </select>
+              <button type="submit" className="w-full bg-primary text-white py-3 rounded-lg font-bold text-lg shadow-lg hover:bg-primary/90 transition">GET YOUR QUOTE NOW!</button>
+            </form>
+            <p className="text-center text-white/80 text-sm mt-6">We promise that your details are secure with us.</p>
+          </div>
         </div>
       </section>
     </FluidBackground>
