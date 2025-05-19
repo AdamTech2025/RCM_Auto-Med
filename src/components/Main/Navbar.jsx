@@ -82,16 +82,30 @@ const NavBar = () => {
               }
               end={item.path === '/'}
             >
-              {({ isActive }) => (
+              {({ isActive: isNavLinkActive }) => (
                 <motion.div
-                  whileHover={{ y: -1 }}
-                  transition={{ duration: 0.2 }}
+                  className="relative"
+                  initial="rest"
+                  whileHover="hover"
+                  animate={isNavLinkActive ? "active" : "rest"}
+                  variants={{
+                    rest: { y: 0 },
+                    hover: { y: -1 },
+                    active: { y: 0 },
+                  }}
+                  transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
                 >
                   {item.name}
-                  <span
-                    className={`absolute -bottom-0.5 left-0 h-0.5 bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`}
-                  ></span>
+                  <motion.span
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                    style={{ originX: 0 }}
+                    variants={{
+                      rest: { scaleX: 0 },
+                      hover: { scaleX: 1 },
+                      active: { scaleX: 1 }
+                    }}
+                    transition={{ type: "tween", duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                  />
                 </motion.div>
               )}
             </NavLink>
