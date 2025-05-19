@@ -18,6 +18,15 @@ import Integrations from "./components/Pages/Integrations.jsx";
 import CaseStudies from "./components/Pages/CaseStudies.jsx";
 import Testimonials from "./components/Pages/Testimonials.jsx";
 import DemoCTA from "./components/Pages/DemoCTA.jsx";
+import ContactUs from "./components/Pages/ContactUs.jsx";
+
+// Newly added placeholder page components
+import ManagementServices from "./components/Pages/ManagementServices.jsx";
+import DentalCPA from "./components/Pages/DentalCPA.jsx";
+import Rates from "./components/Pages/Rates.jsx";
+import Careers from "./components/Pages/Careers.jsx";
+import Blog from "./components/Pages/Blog.jsx";
+
 // Note: ScrollReveal is now part of Benefits.jsx, so not directly imported here for HomePage unless used elsewhere.
 
 const Layout = () => (
@@ -52,6 +61,12 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="contact" element={<ContactUs />} />
+          <Route path="management-services" element={<ManagementServices />} />
+          <Route path="dental-cpa" element={<DentalCPA />} />
+          <Route path="rates" element={<Rates />} />
+          <Route path="careers" element={<Careers />} />
+          <Route path="blog" element={<Blog />} />
         </Route>
       </Routes>
     </Router>

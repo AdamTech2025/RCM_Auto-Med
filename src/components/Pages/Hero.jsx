@@ -10,7 +10,7 @@ import logo3 from "../../assets/IMedX_Logo.png";
 export default function Hero() {
   return (
     <FluidBackground>
-      <section className="relative min-h-screen flex items-center justify-center bg-black/25 bg-blend-overlay" style={{ backgroundImage: 'url(/your-bg.jpg)', backgroundSize: 'cover' }}>
+      <section id="home" className="relative min-h-screen flex items-center justify-center bg-black/25 bg-blend-overlay" style={{ backgroundImage: 'url(/your-bg.jpg)', backgroundSize: 'cover' }}>
         <div className="container mx-auto px-4 py-20 flex flex-col md:flex-row gap-12 items-center justify-center">
           {/* Left: Pitch */}
           <div className="md:w-1/2 text-white">

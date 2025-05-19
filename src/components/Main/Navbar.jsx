@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Brain } from "lucide-react";
 import BookDemo from "../shared/BookDemo";
@@ -12,60 +12,50 @@ const NavBar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const scrollToSection = (sectionId) => {
-    setIsOpen(false);
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        console.warn(`Section with id "${sectionId}" not found`);
-      }
-    }, 100);
-  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Close menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (isOpen && !e.target.closest('nav')) {
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest('nav')) {
         setIsOpen(false);
       }
     };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [isOpen]);
 
-  // Navigation items shared between desktop and mobile
   const navItems = [
-    { name: 'Home', id: 'home' },
-    
-    
-    { name: 'Management Services', id: 'management-services' },
-    { name: 'Dental CPA', id: 'dental-cpa' },
-    { name: 'Rates', id: 'rates' },
-    { name: 'Contact Us', id: 'contact' },
-    { name: 'Careers', id: 'careers' },
-    { name: 'Blog', id: 'blog' }
+    { name: 'Home', path: '/' },
+    { name: 'Management Services', path: '/management-services' },
+    { name: 'Dental CPA', path: '/dental-cpa' },
+    { name: 'Rates', path: '/rates' },
+    { name: 'Contact Us', path: '/contact' },
+    { name: 'Careers', path: '/careers' },
+    { name: 'Blog', path: '/blog' }
   ];
 
+  const commonLinkClasses = "font-medium px-3 py-2 text-sm relative group whitespace-nowrap";
+  const activeLinkClass = "text-primary";
+  const inactiveLinkClass = "text-gray-700 hover:text-primary";
+
+  const getNavLinkClass = ({ isActive }) => 
+    `${commonLinkClasses} ${isActive ? activeLinkClass : inactiveLinkClass}`;
+
+  const getMobileNavLinkClass = ({ isActive }) => 
+    `font-medium block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm ${isActive ? 'text-primary bg-blue-50' : 'text-gray-700 hover:text-primary hover:bg-gray-50'}`;
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${
-      isScrolled 
-        ? "bg-white/90 backdrop-blur-lg shadow-lg py-2" 
-        : "bg-white/40 backdrop-blur-md py-4"
-    }`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? "bg-white/90 backdrop-blur-lg shadow-lg py-2" : "bg-white/40 backdrop-blur-md py-4"}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/">
+        <NavLink to="/">
           <motion.div 
             className="flex items-center cursor-pointer gap-3"
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -80,21 +70,31 @@ const NavBar = () => {
               <span className="text-xs text-primary font-medium -mt-1 tracking-wide">AI Healthcare Solutions</span>
             </div>
           </motion.div>
-        </Link>
+        </NavLink>
 
-        {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
-            <motion.button 
+            <NavLink
               key={item.name}
-              onClick={() => scrollToSection(item.id)} 
-              className="text-gray-700 hover:text-primary font-medium px-3 py-2 text-sm relative group whitespace-nowrap"
-              whileHover={{ y: -1 }}
-              transition={{ duration: 0.2 }}
+              to={item.path}
+              className={({ isActive }) =>
+                `${commonLinkClasses} ${isActive ? activeLinkClass : inactiveLinkClass}`
+              }
+              end={item.path === '/'}
             >
-              {item.name}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </motion.button>
+              {({ isActive }) => (
+                <motion.div
+                  whileHover={{ y: -1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {item.name}
+                  <span
+                    className={`absolute -bottom-0.5 left-0 h-0.5 bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                  ></span>
+                </motion.div>
+              )}
+            </NavLink>
           ))}
           <div className="ml-4">
             <BookDemo 
@@ -104,7 +104,6 @@ const NavBar = () => {
           </div>
         </div>
 
-        {/* Mobile menu button */}
         <div className="lg:hidden">
           <motion.button 
             onClick={(e) => {
@@ -125,7 +124,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu with Animation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 
@@ -143,15 +141,17 @@ const NavBar = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <button 
+                  <NavLink 
+                    to={item.path} 
                     onClick={(e) => {
                       e.stopPropagation();
-                      scrollToSection(item.id);
+                      setIsOpen(false);
                     }}
-                    className="text-gray-700 hover:text-primary font-medium block w-full text-left px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm"
+                    className={getMobileNavLinkClass}
+                    end={item.path === '/'}
                   >
                     {item.name}
-                  </button>
+                  </NavLink>
                 </motion.div>
               ))}
               
