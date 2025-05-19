@@ -45,8 +45,8 @@ const ContactUs = () => {
               <div className="text-gray-600 space-y-1 mt-4 text-sm">
                 <p>123 Bright Smile St.</p>
                 <p>New York, NY 10001</p>
-                <p><span className="font-semibold text-black">Phone:</span> +1 (212) 555-1234</p>
-                <p><span className="font-semibold text-black">Fax:</span> +1 (212) 555-5678</p>
+                <p><span className="font-semibold text-black">Phone:</span> +1 (858) 888-0645</p>
+                <p><span className="font-semibold text-black">Fax:</span> +1 (858) 888-0645</p>
               </div>
             </div>
 
@@ -55,8 +55,8 @@ const ContactUs = () => {
             <div>
               <h2 className="text-2xl font-serif font-bold text-black mb-3">Availability</h2>
               <div className="text-gray-600 space-y-2 text-sm">
-                <p>Our team is available <span className="font-semibold text-black">Monday to Saturday</span>, 9:00 AM to 7:00 PM.</p>
-                <p><span className="text-red-500 font-semibold">Closed on Sundays.</span></p>
+                <p>We're here for you <span className="font-semibold text-black">24/7</span>.</p>
+                {/* <p><span className="text-red-500 font-semibold">Closed on Sundays.</span></p> */}
               </div>
             </div>
 
