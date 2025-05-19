@@ -33,7 +33,7 @@ const ContactUs = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 md:mb-20">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-gray-700 mb-4">
-            Need dental billing, SEO, Web Design or practice management?
+            Need dental billing
             <span className="font-bold text-black block sm:inline-block mt-2 sm:mt-0 sm:ml-2">Contact us now!</span>
           </h1>
         </div>

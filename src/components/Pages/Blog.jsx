@@ -1,58 +1,84 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react'; // For the Read More arrow
+import blog_1 from '../../assets/grp_2.jpg';
 
 // Sample Blog Post Data
 const samplePosts = [
   {
     id: 1,
-    title: 'How to differentiate each of them?',
-    date: 'May 2, 2021',
-    excerpt: 'Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ever.',
-    imageUrl: 'https://placehold.co/600x400/00BCD4/FFFFFF/png?text=Blog+Image+1&font=lora',
-    slug: 'how-to-differentiate-1'
+    title: "The Future of Dental Billing: AI's Role in RCM",
+    date: 'October 26, 2023',
+    excerpt: 'Explore how Artificial Intelligence is reshaping the landscape of dental revenue cycle management, leading to increased efficiency and accuracy.',
+    imageUrl: 'https://placehold.co/600x400/1E88E5/FFFFFF/png?text=AI+in+Dental+Billing&font=lora',
+    slug: 'future-dental-billing-ai-rcm'
   },
   {
     id: 2,
-    title: 'How to differentiate each of them?',
-    date: 'May 2, 2021',
-    excerpt: 'Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ever.',
-    imageUrl: 'https://placehold.co/600x400/E91E63/FFFFFF/png?text=Blog+Image+2&font=lora',
-    slug: 'how-to-differentiate-2'
+    title: 'Maximizing Revenue: How AI Streamlines Dental RCM',
+    date: 'November 5, 2023',
+    excerpt: 'Discover practical ways AI tools can optimize your dental practice\'s RCM processes, from claim submission to payment reconciliation, boosting your bottom line.',
+    imageUrl: 'https://placehold.co/600x400/43A047/FFFFFF/png?text=AI+Streamlines+RCM&font=lora',
+    slug: 'maximizing-revenue-ai-rcm'
   },
   {
     id: 3,
-    title: 'How to differentiate each of them?',
-    date: 'May 2, 2021',
-    excerpt: 'Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ever.',
-    imageUrl: 'https://placehold.co/600x400/FF9800/FFFFFF/png?text=Blog+Image+3&font=lora',
-    slug: 'how-to-differentiate-3'
+    title: 'Reducing Denials: AI-Powered Predictive Analytics in Dental Billing',
+    date: 'November 18, 2023',
+    excerpt: 'Learn how AI-driven predictive analytics can identify potential claim denials before they happen, significantly improving your clean claim rate.',
+    imageUrl: 'https://placehold.co/600x400/FDD835/333333/png?text=AI+Reduces+Denials&font=lora',
+    slug: 'reducing-denials-ai-predictive-analytics'
   },
-  // Add more sample posts if needed
+  {
+    id: 4,
+    title: "Transforming Patient Experience with AI in Dental Revenue Cycle",
+    date: 'December 2, 2023',
+    excerpt: 'Understand the impact of AI on the patient financial experience, from transparent billing to easier payment options, enhancing overall satisfaction.',
+    imageUrl: 'https://placehold.co/600x400/8E24AA/FFFFFF/png?text=AI+Patient+Experience&font=lora',
+    slug: 'transforming-patient-experience-ai-rcm'
+  },
+  {
+    id: 5,
+    title: 'Key AI Tools Revolutionizing Dental Practice Management',
+    date: 'December 15, 2023',
+    excerpt: 'A look at essential AI-powered tools that are making dental practice management more efficient, profitable, and patient-focused.',
+    imageUrl: 'https://placehold.co/600x400/00ACC1/FFFFFF/png?text=Key+AI+Tools+for+Dental&font=lora',
+    slug: 'key-ai-tools-dental-practice'
+  },
+  {
+    id: 6,
+    title: "The ROI of AI: Investing in Intelligent RCM for Your Dental Practice",
+    date: 'January 5, 2024',
+    excerpt: 'Analyzing the return on investment when implementing AI solutions for revenue cycle management in a modern dental practice.',
+    imageUrl: 'https://placehold.co/600x400/D81B60/FFFFFF/png?text=ROI+of+AI+in+RCM&font=lora',
+    slug: 'roi-of-ai-intelligent-rcm'
+  }
 ];
 
 const Blog = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* Header Section */}
-      <header className="bg-indigo-900 text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+      <header 
+        className="text-primary-foreground py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative bg-cover bg-center" 
+        style={{ backgroundImage: `url(${blog_1})` }}
+      >
+        <div className="absolute inset-0 bg-primary/50 mix-blend-multiply"></div> {/* Overlay for text readability */}
+        <div className="max-w-3xl mx-auto text-center relative z-10 "> {/* Added relative z-10 to ensure text is above overlay*/}
+          <h1 className="text-4xl sm:text-5xl font-bold mb-24">
             Our Recent Blogs
           </h1>
-          <p className="text-lg sm:text-xl text-indigo-200 mb-10 max-w-2xl mx-auto">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever.
+          <p className="text-lg sm:text-xl text-black font-bold mb-10 max-w-2xl mx-auto">
+            Stay updated with our latest insights on AI-driven RCM, dental practice management, and the future of healthcare technology.
           </p>
           <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
             <input 
               type="email"
               placeholder="Enter your email"
-              className="flex-grow px-5 py-3 rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500 bg-indigo-100 bg-opacity-20 border border-transparent focus:border-pink-400"
-              style={{ backgroundColor: 'rgba(255,255,255,0.1)' }} // More direct control for bg
+              className="flex-grow px-5 py-3 rounded-md text-primary-foreground placeholder-primary-foreground/70 focus:outline-none focus:ring-2 focus:ring-primary-foreground/50 bg-black/20 border border-transparent focus:border-primary-foreground/30"
             />
             <button 
               type="submit"
-              className="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 shadow-lg"
+              className="bg-red-800 text-secondary-foreground hover:bg-primary/90 font-semibold px-8 py-3 rounded-md transition-colors duration-300 shadow-lg"
             >
               Subscribe
             </button>
@@ -83,7 +109,7 @@ const Blog = () => {
                   </p>
                   <a 
                     href={`/blog/${post.slug}`} // Assuming you'll have individual blog post pages
-                    className="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium group self-start"
+                    className="inline-flex items-center text-primary hover:text-primary/80 font-medium group self-start"
                   >
                     Read More
                     <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
