@@ -56,8 +56,8 @@ const NavBar = () => {
     <nav className={`fixed w-full backdrop-blur-sm z-50 py-4 transition-all duration-300 ${
       isScrolled ? "bg-white/90 shadow-sm" : "bg-white/50"
     }`}>
-      <div className="container mx-auto px-4 flex items-center justify-end">
-        {/* <Link to="/">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <Link to="/">
           <motion.div 
             className="flex items-center cursor-pointer gap-2"
             whileHover={{ scale: 1.05 }}
@@ -68,11 +68,11 @@ const NavBar = () => {
               <Brain className="w-6 h-6 text-white relative z-10" />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-gray-900">Auto Med</span>
+              <span className="text-lg font-bold text-gray-900">Adam Rev Max</span>
               <span className="text-xs text-primary font-medium -mt-1">AI Healthcare Solutions</span>
             </div>
           </motion.div>
-        </Link> */}
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
