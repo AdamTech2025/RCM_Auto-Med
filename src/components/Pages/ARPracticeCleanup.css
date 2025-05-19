@@ -1,0 +1,162 @@
+/* ARPracticeCleanup.css */
+.ar-cleanup-container {
+  display: flex; /* Enables flexbox for layout */
+  align-items: center; /* Aligns items vertically */
+  justify-content: center; /* Centers content horizontally */
+  padding: 3rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6; /* A light, neutral background */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 1000px; /* Increased max-width for a wider layout */
+  gap: 2rem; /* Space between content and potential visual element */
+}
+
+.ar-cleanup-content {
+  flex: 1; /* Allows content to take available space */
+  text-align: left; /* Align text to the left for readability */
+}
+
+.ar-cleanup-header {
+  color: #2c3e50; /* A deep, professional blue */
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center; /* Center the main header */
+  font-weight: 600;
+}
+
+.ar-cleanup-paragraph {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.ar-cleanup-paragraph strong {
+  color: #007bff; /* Highlight important terms */
+}
+
+.ar-benefits-section {
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.ar-benefits-header {
+  color: #34495e; /* Another shade of blue/grey */
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.ar-benefits-list {
+  list-style: none;
+  padding: 0;
+  display: grid; /* Use grid for a more structured layout of benefits */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
+  gap: 1.5rem; /* Space between grid items */
+}
+
+.ar-benefits-list-item {
+  display: flex;
+  align-items: flex-start; /* Align icon and text to the top */
+  background-color: #f9f9f9; /* Light background for each item */
+  padding: 1rem;
+  border-radius: 6px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.ar-benefits-list-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ar-benefit-icon {
+  font-size: 2rem; /* Larger icons */
+  color: #007bff; /* Blue icon color */
+  margin-right: 1rem; /* Space between icon and text */
+  margin-top: 0.25rem; /* Align icon slightly lower */
+}
+
+.ar-benefits-list-item div strong {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.ar-benefits-list-item div {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.ar-cta-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 50px; /* Pill-shaped button */
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: block; /* Make it a block to center it */
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.ar-cta-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Placeholder for a potential visual element on the side */
+.ar-cleanup-visual {
+  flex: 0 0 300px; /* Fixed width for the visual element, adjust as needed */
+  /* Add styling for your image or graphic here */
+  /* e.g., background-image: url('path-to-your-image.png'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* border-radius: 8px; */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ar-cleanup-container {
+    flex-direction: column; /* Stack content and visual on smaller screens */
+    padding: 2rem 1rem;
+  }
+
+  .ar-cleanup-header {
+    font-size: 2rem;
+  }
+
+  .ar-benefits-header {
+    font-size: 1.5rem;
+  }
+
+  .ar-benefits-list {
+    grid-template-columns: 1fr; /* Single column for benefits on small screens */
+  }
+
+  .ar-cleanup-visual {
+    display: none; /* Hide visual element on small screens or adjust as needed */
+    /* Or, if you want to show it:
+    flex: 1;
+    width: 100%;
+    height: 200px; // example height
+    margin-top: 2rem;
+    */
+  }
+
+  .ar-cta-button {
+    width: 100%;
+    text-align: center;
+  }
+} 
