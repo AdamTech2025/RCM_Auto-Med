@@ -43,7 +43,7 @@ const ContactUs = () => {
             <div>
               <h2 className="text-2xl font-serif text-gray-500 mb-1">Contact <span className="font-bold text-black">us</span></h2>
               <div className="text-gray-600 space-y-1 mt-4 text-sm">
-                <p>123 Bright Smile St.</p>
+                <p>125 South Wacker Dr Suite </p>
                 <p>New York, NY 10001</p>
                 <p><span className="font-semibold text-black">Phone:</span> +1 (858) 888-0645</p>
                 <p><span className="font-semibold text-black">Fax:</span> +1 (858) 888-0645</p>
