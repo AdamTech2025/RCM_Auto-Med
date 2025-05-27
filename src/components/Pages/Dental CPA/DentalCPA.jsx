@@ -1,5 +1,5 @@
 import React from 'react';
-import grp_pic from '../../assets/grp_1.jpg';
+import grp_pic from '../../../assets/grp_1.jpg';
 
 export default function DentalCPA() {
   return (

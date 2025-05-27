@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 
 // Import dental logo images
-import dentrixLogo from "../../assets/Dental Logos/Dentrix-logo.png";
-import eaglesoftLogo from "../../assets/Dental Logos/eaglesoft-logo.png";
-import openDentalLogo from "../../assets/Dental Logos/open-dental.webp";
-import curveDentalLogo from "../../assets/Dental Logos/CurveDental_New Logos_square full color on transp (1)-1.webp";
-import carestreamLogo from "../../assets/Dental Logos/carestream-dental-logo.png";
-import denticonLogo from "../../assets/Dental Logos/denticon.webp";
-import abeldentLogo from "../../assets/Dental Logos/abeldent.webp";
-import tab32Logo from "../../assets/Dental Logos/tab-logo-dark.png";
-import dentiMaxLogo from "../../assets/Dental Logos/DentiMax-Logo-Retina.png.webp";
-import aceDentalLogo from "../../assets/Dental Logos/Ace Dental88b249b2-ee09-485b-9d3c-6ee6142035fb.webp";
-import dentalMasterLogo from "../../assets/Dental Logos/cropped-dentalMaster-logo-08.png";
-import iDentalSoftLogo from "../../assets/Dental Logos/idslogo_color_220x37dp.png";
+import dentrixLogo from "../../../assets/Dental Logos/Dentrix-logo.png";
+import eaglesoftLogo from "../../../assets/Dental Logos/eaglesoft-logo.png";
+import openDentalLogo from "../../../assets/Dental Logos/open-dental.webp";
+import curveDentalLogo from "../../../assets/Dental Logos/CurveDental_New Logos_square full color on transp (1)-1.webp";
+import carestreamLogo from "../../../assets/Dental Logos/carestream-dental-logo.png";
+import denticonLogo from "../../../assets/Dental Logos/denticon.webp";
+import abeldentLogo from "../../../assets/Dental Logos/abeldent.webp";
+import tab32Logo from "../../../assets/Dental Logos/tab-logo-dark.png";
+import dentiMaxLogo from "../../../assets/Dental Logos/DentiMax-Logo-Retina.png.webp";
+import aceDentalLogo from "../../../assets/Dental Logos/Ace Dental88b249b2-ee09-485b-9d3c-6ee6142035fb.webp";
+import dentalMasterLogo from "../../../assets/Dental Logos/cropped-dentalMaster-logo-08.png";
+import iDentalSoftLogo from "../../../assets/Dental Logos/idslogo_color_220x37dp.png";
 
 export default function Integrations() {
   const integrations = [

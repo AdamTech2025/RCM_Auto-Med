@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
-import Aurora from '../UI/Aurora';
-import hipaaLogo from "../../assets/hipaa_blue-3.webp";
+import Aurora from '../../UI/Aurora';
+import hipaaLogo from "../../../assets/hipaa_blue-3.webp";
 
 export default function DemoCTA() {
   return (

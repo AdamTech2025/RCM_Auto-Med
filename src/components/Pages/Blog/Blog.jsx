@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react'; // For the Read More arrow
-import blog_1 from '../../assets/grp_2.jpg';
+import blog_1 from '../../../assets/grp_2.jpg';
 
 // Sample Blog Post Data
 const samplePosts = [

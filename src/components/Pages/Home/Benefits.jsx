@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import CountUp from '../UI/CountUp';
-import ScrollReveal from '../UI/ScrollReveal';
+import CountUp from '../../UI/CountUp';
+import ScrollReveal from '../../UI/ScrollReveal';
 
 const benefits = [
   {

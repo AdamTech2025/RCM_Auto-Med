@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, FileText, Shield, Stethoscope } from "lucide-react";
-import FluidBackground from "../UI/FluidBackground";
+import FluidBackground from "../../UI/FluidBackground";
 
 const blurTextVariants = {
   hidden: { 

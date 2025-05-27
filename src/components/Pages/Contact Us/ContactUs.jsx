@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import BookDemo from '../shared/BookDemo';
-import { Button } from '../shared/Button';
+import BookDemo from '../../shared/BookDemo';
+import { Button } from '../../shared/Button';
 
 const ContactUs = () => {
   const formRef = useRef();

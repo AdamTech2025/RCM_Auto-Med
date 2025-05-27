@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
-import BookDemo from '../shared/BookDemo';
-import FluidBackground from '../UI/FluidBackground';
+import BookDemo from '../../shared/BookDemo';
+import FluidBackground from '../../UI/FluidBackground';
 
 const plans = [
   {
