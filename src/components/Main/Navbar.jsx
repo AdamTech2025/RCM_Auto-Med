@@ -19,7 +19,7 @@ const navItems = [
       { name: 'Chiropractic', path: '/chiropractic' }
     ]
   },
-  { name: 'Management Services', path: '/management-services' },
+  // { name: 'Management Services', path: '/management-services' },
   // { name: 'Dental CPA', path: '/dental-cpa' },
   { name: 'Contact Us', path: '/contact' },
   { name: 'Careers', path: '/careers' },

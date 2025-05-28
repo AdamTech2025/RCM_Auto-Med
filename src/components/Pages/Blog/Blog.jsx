@@ -1,6 +1,13 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react'; // For the Read More arrow
-import blog_1 from '../../../assets/grp_2.jpg';
+import blog_main from '../../../assets/grp_2.jpg';
+import blog_1 from '../../../assets/blog/blog 1.jpeg';
+import blog_2 from '../../../assets/blog/blog 2.jpeg';
+import blog_3 from '../../../assets/blog/blog 3.jpeg';
+import blog_4 from '../../../assets/blog/blog 4.jpeg';
+import blog_5 from '../../../assets/blog/blog 5.jpeg';
+import blog_6 from '../../../assets/blog/blog 6.jpeg';
+
 
 // Sample Blog Post Data
 const samplePosts = [
@@ -9,7 +16,7 @@ const samplePosts = [
     title: "The Future of Dental Billing: AI's Role in RCM",
     date: 'October 26, 2023',
     excerpt: 'Explore how Artificial Intelligence is reshaping the landscape of dental revenue cycle management, leading to increased efficiency and accuracy.',
-    imageUrl: 'https://placehold.co/600x400/1E88E5/FFFFFF/png?text=AI+in+Dental+Billing&font=lora',
+    imageUrl: blog_1,
     slug: 'future-dental-billing-ai-rcm'
   },
   {
@@ -17,7 +24,7 @@ const samplePosts = [
     title: 'Maximizing Revenue: How AI Streamlines Dental RCM',
     date: 'November 5, 2023',
     excerpt: 'Discover practical ways AI tools can optimize your dental practice\'s RCM processes, from claim submission to payment reconciliation, boosting your bottom line.',
-    imageUrl: 'https://placehold.co/600x400/43A047/FFFFFF/png?text=AI+Streamlines+RCM&font=lora',
+    imageUrl: blog_2,
     slug: 'maximizing-revenue-ai-rcm'
   },
   {
@@ -25,7 +32,7 @@ const samplePosts = [
     title: 'Reducing Denials: AI-Powered Predictive Analytics in Dental Billing',
     date: 'November 18, 2023',
     excerpt: 'Learn how AI-driven predictive analytics can identify potential claim denials before they happen, significantly improving your clean claim rate.',
-    imageUrl: 'https://placehold.co/600x400/FDD835/333333/png?text=AI+Reduces+Denials&font=lora',
+    imageUrl: blog_3,
     slug: 'reducing-denials-ai-predictive-analytics'
   },
   {
@@ -33,7 +40,7 @@ const samplePosts = [
     title: "Transforming Patient Experience with AI in Dental Revenue Cycle",
     date: 'December 2, 2023',
     excerpt: 'Understand the impact of AI on the patient financial experience, from transparent billing to easier payment options, enhancing overall satisfaction.',
-    imageUrl: 'https://placehold.co/600x400/8E24AA/FFFFFF/png?text=AI+Patient+Experience&font=lora',
+    imageUrl: blog_4,
     slug: 'transforming-patient-experience-ai-rcm'
   },
   {
@@ -41,7 +48,7 @@ const samplePosts = [
     title: 'Key AI Tools Revolutionizing Dental Practice Management',
     date: 'December 15, 2023',
     excerpt: 'A look at essential AI-powered tools that are making dental practice management more efficient, profitable, and patient-focused.',
-    imageUrl: 'https://placehold.co/600x400/00ACC1/FFFFFF/png?text=Key+AI+Tools+for+Dental&font=lora',
+    imageUrl: blog_5,
     slug: 'key-ai-tools-dental-practice'
   },
   {
@@ -49,7 +56,7 @@ const samplePosts = [
     title: "The ROI of AI: Investing in Intelligent RCM for Your Dental Practice",
     date: 'January 5, 2024',
     excerpt: 'Analyzing the return on investment when implementing AI solutions for revenue cycle management in a modern dental practice.',
-    imageUrl: 'https://placehold.co/600x400/D81B60/FFFFFF/png?text=ROI+of+AI+in+RCM&font=lora',
+    imageUrl: blog_6,
     slug: 'roi-of-ai-intelligent-rcm'
   }
 ];
@@ -60,7 +67,7 @@ const Blog = () => {
       {/* Header Section */}
       <header 
         className="text-primary-foreground py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative bg-cover bg-center" 
-        style={{ backgroundImage: `url(${blog_1})` }}
+        style={{ backgroundImage: `url(${blog_main})` }}
       >
         <div className="absolute inset-0 bg-primary/50 mix-blend-multiply"></div> {/* Overlay for text readability */}
         <div className="max-w-3xl mx-auto text-center relative z-10 "> {/* Added relative z-10 to ensure text is above overlay*/}

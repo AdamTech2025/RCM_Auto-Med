@@ -13,43 +13,43 @@ import {
 const features = [
   {
     icon: <LineChart className="w-12 h-12 text-primary" />,
-    title: "Dental Practice Analytics",
-    description: "Track dental procedure revenues, patient appointments, and insurance claim status in real-time with our intuitive analytics dashboard."
+    title: "Healthcare Practice Analytics",
+    description: "Track patient visits, procedure revenues, and insurance claim status in real-time with our intuitive analytics dashboard for all healthcare specialties."
   },
   {
     icon: <ClipboardCheck className="w-12 h-12 text-primary" />,
     title: "Automated Insurance Verification",
-    description: "Streamline dental insurance eligibility verification and benefits checking with our automated system, reducing front desk workload by 85%."
+    description: "Streamline insurance eligibility verification and benefits checking with our automated system, reducing front desk workload by 85% across all practice types."
   },
   {
     icon: <Clock className="w-12 h-12 text-primary" />,
-    title: "Faster Dental Claims Processing",
-    description: "Reduce dental claim processing time by up to 75% with AI-powered validation and automated submission systems customized for dental procedures."
+    title: "Faster Claims Processing",
+    description: "Reduce claim processing time by up to 75% with AI-powered validation and automated submission systems customized for your healthcare specialty."
   },
   {
     icon: <DollarSign className="w-12 h-12 text-primary" />,
-    title: "Dental Revenue Optimization",
-    description: "Maximize reimbursements with intelligent procedure coding and dynamic pricing optimization for your dental practice."
+    title: "Revenue Optimization",
+    description: "Maximize reimbursements with intelligent procedure coding and dynamic pricing optimization tailored to your healthcare practice needs."
   },
   {
     icon: <Shield className="w-12 h-12 text-primary" />,
-    title: "Dental Compliance Assurance",
-    description: "Stay compliant with automatic updates to dental CDT coding rules and regulatory requirements specific to dental practices."
+    title: "Healthcare Compliance Assurance",
+    description: "Stay compliant with automatic updates to medical coding rules and regulatory requirements specific to your healthcare specialty."
   },
   {
     icon: <BarChart className="w-12 h-12 text-primary" />,
     title: "Practice Performance Metrics",
-    description: "Track and improve key dental metrics including Days in AR, Clean Claim Rate, and Production-to-Collection Ratio."
+    description: "Track and improve key healthcare metrics including Days in AR, Clean Claim Rate, and Production-to-Collection Ratio across all specialties."
   },
   {
     icon: <Users className="w-12 h-12 text-primary" />,
-    title: "Dental Patient Engagement",
-    description: "Enhance patient satisfaction with transparent dental billing processes and multiple payment options for procedures."
+    title: "Patient Engagement",
+    description: "Enhance patient satisfaction with transparent billing processes and multiple payment options for all types of medical procedures and treatments."
   },
   {
     icon: <Award className="w-12 h-12 text-primary" />,
     title: "Best-in-Class Support",
-    description: "24/7 expert support and continuous training to ensure maximum value from our dental practice management solution."
+    description: "24/7 expert support and continuous training to ensure maximum value from our healthcare practice management solution across all specialties."
   }
 ];
 
@@ -64,7 +64,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Comprehensive Dental Practice Features
+            Comprehensive Healthcare Practice Features
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -73,7 +73,7 @@ export default function Features() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Everything You Need for Dental Practice Excellence
+            Everything You Need for Healthcare Practice Excellence
           </motion.h2>
         </div>
 

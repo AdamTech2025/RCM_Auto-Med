@@ -27,10 +27,10 @@ export default function DemoCTA() {
             className="max-w-3xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
-              Ready to Transform Your Dental Practice?
+              Ready to Transform Your Healthcare Practice?
             </h2>
             <p className="text-lg md:text-xl text-black/80 mb-8">
-              Join thousands of dental practices who have already optimized their billing and coding with our AI-powered solution.
+              Join thousands of healthcare practices who have already optimized their billing and coding with our AI-powered solution across all specialties.
             </p>
             <a 
               href="https://automed.adamtechnologies.in/" 
@@ -60,7 +60,7 @@ export default function DemoCTA() {
                   Your patient data is protected with HIPAA-compliant security
                 </p>
                 <p className="text-sm text-gray-500 mt-2 max-w-md">
-                  Our dental practice software adheres to all HIPAA regulations, ensuring your patients' information remains secure and private at all times.
+                  Our healthcare practice software adheres to all HIPAA regulations, ensuring your patients' information remains secure and private at all times.
                 </p>
               </div>
             </motion.div>

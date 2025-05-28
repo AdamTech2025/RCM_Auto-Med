@@ -4,24 +4,24 @@ import ScrollReveal from '../../UI/ScrollReveal';
 
 const benefits = [
   {
-    stat: 96,
-    title: "Dental Claim Approval Rate",
-    description: "Achieve industry-leading first-pass dental claim acceptance rates with our AI-powered validation."
+    stat: 95,
+    title: "Healthcare Claim Approval Rate",
+    description: "Achieve industry-leading first-pass claim acceptance rates with our AI-powered validation across all healthcare specialties."
   },
   {
-    stat: 60,
+    stat: 55,
     title: "Reduced A/R Days",
-    description: "Significantly decrease your dental practice's Days in A/R with automated follow-up and denial management."
+    description: "Significantly decrease your practice's Days in A/R with automated follow-up and denial management across all healthcare specialties."
   },
   {
-    stat: 15,
+    stat: 18,
     title: "Practice Revenue Increase",
-    description: "Our dental clients see an average of 15% increase in revenue within the first 6 months."
+    description: "Our healthcare clients see an average of 18% increase in revenue within the first 6 months across all specialties."
   },
   {
-    stat: 85,
-    title: "Front Desk Time Saved",
-    description: "Reduce manual dental billing work by up to 85% with our automated dental practice workflows."
+    stat: 80,
+    title: "Administrative Time Saved",
+    description: "Reduce manual billing work by up to 80% with our automated healthcare practice workflows across all specialties."
   }
 ];
 
@@ -36,7 +36,7 @@ export default function Benefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Dental Practice ROI & Benefits
+            Healthcare Practice ROI & Benefits
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -45,7 +45,7 @@ export default function Benefits() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Maximize Your Dental Practice Revenue
+            Maximize Your Healthcare Practice Revenue
           </motion.h2>
           <motion.p
             className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
@@ -54,7 +54,7 @@ export default function Benefits() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            Our AI-powered dental billing solution delivers measurable results that directly impact your practice's bottom line
+            Our AI-powered healthcare billing solution delivers measurable results that directly impact your practice's bottom line across all specialties
           </motion.p>
         </div>
 
@@ -92,7 +92,7 @@ export default function Benefits() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-sm text-gray-500">*Based on average dental customer results after implementing our solution</p>
+          <p className="text-sm text-gray-500">*Based on average healthcare customer results after implementing our solution</p>
         </motion.div>
 
         <ScrollReveal
@@ -102,7 +102,7 @@ export default function Benefits() {
           blurStrength={6}
           containerClassName="text-center py-12 mt-12"
         >
-          Trusted by leading dental practices worldwide to optimize their billing workflow
+          Trusted by leading healthcare practices worldwide to optimize their billing workflow
         </ScrollReveal>
       </div>
     </section>

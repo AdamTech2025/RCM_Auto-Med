@@ -23,26 +23,26 @@ const steps = [
   {
     id: "01",
     icon: <Code2 className="w-8 h-8" />,
-    title: "DENTALCODING.AI",
-    description: "Intelligent dental coding automation that assigns CDT and ICD-10 codes with AI precision, understanding clinical context for improved accuracy."
+    title: "MEDICALCODING.AI",
+    description: "Intelligent medical coding automation that assigns CPT, ICD-10, and HCPCS codes with AI precision, understanding clinical context for improved accuracy across all specialties."
   },
   {
     id: "02",
     icon: <FileText className="w-8 h-8" />,
-    title: "DENTALBILLING.AI",
-    description: "Smart dental billing solutions that automate charge capture, insurance verification, and claim generation while predicting and preventing denials."
+    title: "MEDICALBILLING.AI",
+    description: "Smart healthcare billing solutions that automate charge capture, insurance verification, and claim generation while predicting and preventing denials for all practice types."
   },
   {
     id: "03",
     icon: <Shield className="w-8 h-8" />,
-    title: "DENTALCOMPLIANCE.AI",
-    description: "AI-driven compliance system that analyzes dental codes against insurance rules and regulatory guidelines, ensuring audit readiness."
+    title: "COMPLIANCE.AI",
+    description: "AI-driven compliance system that analyzes medical codes against insurance rules and regulatory guidelines, ensuring audit readiness across healthcare specialties."
   },
   {
     id: "04",
     icon: <Stethoscope className="w-8 h-8" />,
-    title: "ORALCARE.AI",
-    description: "Smart dental data extraction using specialized language processing to support treatment planning and clinical decision-making."
+    title: "HEALTHCARE.AI",
+    description: "Smart medical data extraction using specialized language processing to support clinical documentation and decision-making across all healthcare practices."
   }
 ];
 
@@ -68,7 +68,7 @@ export default function HowItWorks() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              AI-Powered Dental Practice APIs
+              AI-Powered Healthcare Practice APIs
             </motion.h2>
           </div>
 

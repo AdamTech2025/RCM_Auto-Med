@@ -4,20 +4,20 @@ import { Star } from 'lucide-react';
 const testimonials = [
   {
     name: "Dr. Sarah Johnson",
-    role: "Dental Practice Owner, Bright Smile Dental",
-    content: "The AI-powered dental billing solution has transformed our practice. We've seen a 40% reduction in insurance claim denials and our revenue has increased significantly.",
+    role: "Family Practice Owner, Johnson Medical Center",
+    content: "The AI-powered healthcare billing solution has transformed our practice. We've seen a 38% reduction in insurance claim denials and our revenue has increased significantly.",
     rating: 5
   },
   {
     name: "Mark Thompson",
-    role: "Office Manager, Thompson Dental Group",
-    content: "Outstanding dental platform! The automation capabilities have streamlined our front desk operations and the analytics provide invaluable insights for practice management.",
+    role: "Office Manager, Thompson Healthcare Group",
+    content: "Outstanding healthcare platform! The automation capabilities have streamlined our administrative operations and the analytics provide invaluable insights for practice management.",
     rating: 5
   },
   {
     name: "Dr. Emily Chen",
-    role: "Orthodontist, Perfect Smiles Orthodontics",
-    content: "The implementation was smooth and the support team is exceptional. Our dental insurance claims are processed faster and more accurately than ever before.",
+    role: "Specialist, Perfect Care Medical",
+    content: "The implementation was smooth and the support team is exceptional. Our medical insurance claims are processed faster and more accurately than ever before.",
     rating: 5
   }
 ];
@@ -33,7 +33,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Dental Practice Success Stories
+            Healthcare Practice Success Stories
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -42,7 +42,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            What Our Dental Clients Say
+            What Our Healthcare Clients Say
           </motion.h2>
         </div>
 

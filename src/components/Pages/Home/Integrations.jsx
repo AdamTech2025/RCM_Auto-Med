@@ -84,7 +84,7 @@ export default function Integrations() {
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Connect with all your favorite tools and platforms to streamline your dental practice workflow
+            Connect with all your favorite tools and platforms to streamline your healthcare practice workflow across all specialties
           </motion.p>
         </div>
 

@@ -51,14 +51,14 @@ export default function Hero() {
             </h1>
             <p className="text-slate-700 text-lg mb-6 leading-relaxed">
               Powered by intelligent automation, proven methods, and experienced
-              professionals, our RCM solutions are purpose-built to help you
-              improve performance.
+              professionals, our RCM solutions are purpose-built to help healthcare
+              practices improve performance across all specialties.
             </p>
             <p className="text-slate-700 text-lg mb-6 leading-relaxed">
-              Through partnership with Cognizant, you can improve your
+              Through partnership with cutting-edge technology, you can improve your
               financial results quickly and advance every aspect of your
-              business office with digital. With a strong business office and
-              trusted partner, you can focus on delivering amazing care.
+              business office with digital solutions. With a strong business office and
+              trusted partner, you can focus on delivering amazing patient care.
             </p>
             <p className="text-slate-600 text-md mb-10">
               The future of healthcare is evolving. Are you ready for the
