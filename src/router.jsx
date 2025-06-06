@@ -7,6 +7,7 @@ import {
 
 // Components required for Layout and HomePage
 import Navbar from "./components/Main/Navbar.jsx";
+import Footer from "./components/Main/Footer.jsx";
 import CountUp from 'react-countup';
 
 // Page components required for HomePage
@@ -40,7 +41,7 @@ const Layout = () => (
   <>
     <Navbar />
     <Outlet />
-    {/* <Footer /> */}
+    <Footer />
   </>
 );
 
@@ -72,7 +73,7 @@ const AppRouter = () => {
           
           {/* Service Routes */}
           <Route path="dental" element={<Dental />} />
-          <Route path="medical" element={<Medical />} />
+          <Route path="pain-management" element={<Medical />} />
           <Route path="physical-therapy" element={<PhysicalTherapy />} />
           <Route path="mental-health" element={<MentalHealth />} />
           <Route path="optometry" element={<Optometry />} />

@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
 
-// Import dental logo images
-import dentrixLogo from "../../../assets/Dental Logos/Dentrix-logo.png";
-import eaglesoftLogo from "../../../assets/Dental Logos/eaglesoft-logo.png";
-import openDentalLogo from "../../../assets/Dental Logos/open-dental.webp";
-import curveDentalLogo from "../../../assets/Dental Logos/CurveDental_New Logos_square full color on transp (1)-1.webp";
-import carestreamLogo from "../../../assets/Dental Logos/carestream-dental-logo.png";
-import denticonLogo from "../../../assets/Dental Logos/denticon.webp";
-import abeldentLogo from "../../../assets/Dental Logos/abeldent.webp";
-import tab32Logo from "../../../assets/Dental Logos/tab-logo-dark.png";
-import dentiMaxLogo from "../../../assets/Dental Logos/DentiMax-Logo-Retina.png.webp";
-import aceDentalLogo from "../../../assets/Dental Logos/Ace Dental88b249b2-ee09-485b-9d3c-6ee6142035fb.webp";
-import dentalMasterLogo from "../../../assets/Dental Logos/cropped-dentalMaster-logo-08.png";
-import iDentalSoftLogo from "../../../assets/Dental Logos/idslogo_color_220x37dp.png";
+// Import software logo images
+import advancedmdLogo from "../../../assets/software_logo/advancedmd-13.png";
+import kareoLogo from "../../../assets/software_logo/kareo-vector-logo-12.png";
+import healthCatalystLogo from "../../../assets/software_logo/Health Catalyst_id-5vxVlAM_0.png";
+import practicesuiteLogo from "../../../assets/software_logo/practicesuite-11.jpg";
+import ecatalystLogo from "../../../assets/software_logo/ecatalysthealthcaresolutions_logo_9.jpg";
+import idsLogo from "../../../assets/software_logo/idsHW_ROR6_logos.png";
+import trubridgeLogo from "../../../assets/software_logo/trubridge-7.png";
+import idsSecondLogo from "../../../assets/software_logo/idDZeKb98G_logos.png";
+import epicLogo from "../../../assets/software_logo/epic-systems-4.png";
+import cernerLogo from "../../../assets/software_logo/cerner-corporation-3.png";
+import optumLogo from "../../../assets/software_logo/optum-logo-2.png";
+import threeMlogo from "../../../assets/software_logo/3m_logo-1.png";
 
 export default function Integrations() {
   const integrations = [
-    { logo: dentrixLogo, name: "Dentrix" },
-    { logo: eaglesoftLogo, name: "Eaglesoft" },
-    { logo: openDentalLogo, name: "Open Dental" },
-    { logo: curveDentalLogo, name: "Curve Dental" },
-    { logo: carestreamLogo, name: "Carestream Dental" },
-    { logo: denticonLogo, name: "Denticon" },
-    { logo: abeldentLogo, name: "ABELDent" },
-    { logo: tab32Logo, name: "Tab32" },
-    { logo: dentiMaxLogo, name: "DentiMax" },
-    { logo: aceDentalLogo, name: "Ace Dental" },
-    { logo: dentalMasterLogo, name: "DentalMaster" },
-    { logo: iDentalSoftLogo, name: "iDentalSoft" }
+    { logo: advancedmdLogo, name: "AdvancedMD" },
+    { logo: kareoLogo, name: "Kareo" },
+    { logo: healthCatalystLogo, name: "Health Catalyst" },
+    { logo: practicesuiteLogo, name: "PracticeSuite" },
+    { logo: ecatalystLogo, name: "eCatalyst Healthcare" },
+    { logo: idsLogo, name: "IDS" },
+    { logo: trubridgeLogo, name: "TruBridge" },
+    { logo: idsSecondLogo, name: "IDS Solutions" },
+    { logo: epicLogo, name: "Epic Systems" },
+    { logo: cernerLogo, name: "Cerner" },
+    { logo: optumLogo, name: "Optum" },
+    { logo: threeMlogo, name: "3M" }
   ];
 
   const containerVariants = {

@@ -12,7 +12,7 @@ const navItems = [
     hasDropdown: true,
     subItems: [
       { name: 'Dental', path: '/dental' },
-      { name: 'Medical', path: '/medical' },
+      { name: 'Pain Management', path: '/pain-management' },
       { name: 'Physical Therapy', path: '/physical-therapy' },
       { name: 'Mental Health', path: '/mental-health' },
       { name: 'Optometry', path: '/optometry' },
