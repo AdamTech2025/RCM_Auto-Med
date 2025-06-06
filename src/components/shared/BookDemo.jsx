@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 
-export default function BookDemo({ variant = "default", className = "" }) {
+export default function BookDemo({ variant = "default", className = "", children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   // Add Calendly script when modal opens
@@ -21,15 +21,30 @@ export default function BookDemo({ variant = "default", className = "" }) {
     }
   }, [isOpen]);
 
+  // If custom className is provided, use a custom button element
+  // Otherwise use the default Button component
+  const ButtonElement = className ? (
+    <motion.button
+      onClick={() => setIsOpen(true)}
+      className={className}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      {children || "Book a Demo"}
+    </motion.button>
+  ) : (
+    <Button 
+      onClick={() => setIsOpen(true)}
+      variant={variant}
+      className={className}
+    >
+      {children || "Book a Demo"}
+    </Button>
+  );
+
   return (
     <>
-      <Button 
-        onClick={() => setIsOpen(true)}
-        variant={variant}
-        className={className}
-      >
-        Book a Demo
-      </Button>
+      {ButtonElement}
 
       {createPortal(
         <AnimatePresence>
@@ -78,5 +93,6 @@ export default function BookDemo({ variant = "default", className = "" }) {
 
 BookDemo.propTypes = {
   variant: PropTypes.oneOf(['default', 'secondary']),
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node
 };

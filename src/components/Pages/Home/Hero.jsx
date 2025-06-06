@@ -169,7 +169,10 @@ export default function Hero() {
               <BookDemo
                 variant="secondary"
                 className="group bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-4 px-8 rounded-xl text-lg transition-all duration-300 inline-flex items-center justify-center border border-gray-200 hover:border-gray-300"
-              />
+              >
+                <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Watch Demo
+              </BookDemo>
             </motion.div>
 
             {/* Stats */}
