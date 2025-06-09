@@ -685,22 +685,28 @@ const DentalCaseStudies = () => {
 const DentalTestimonials = () => {
   const testimonials = [
     {
-      name: "Dr. Sarah Johnson",
-      role: "Dental Practice Owner, Bright Smile Dental",
-      content: "The AI-powered dental billing solution has transformed our practice. We've seen a 40% reduction in insurance claim denials and our revenue has increased significantly.",
-      rating: 5
+      name: "Dr. Anya Desai",
+      role: "Practice Owner",
+      company: "Bright Smiles Dental Group",
+      content: "CareStack dropped our insurance aging by 70%. Automated eligibility checks and e-claims streamlined our billing, saving hours weekly and boosting collections.",
+      rating: 5,
+      avatar: "AD"
     },
     {
-      name: "Mark Thompson",
-      role: "Office Manager, Thompson Dental Group",
-      content: "Outstanding dental platform! The automation capabilities have streamlined our front desk operations and the analytics provide invaluable insights for practice management.",
-      rating: 5
+      name: "Michael Jennings",
+      role: "Office Manager",
+      company: "Premier Dental Care",
+      content: "Denticon made claims processing much faster. Claim scrubbing reduced denials dramatically. Our A/R is the lowest ever and monthly revenue consistently higher.",
+      rating: 5,
+      avatar: "MJ"
     },
     {
-      name: "Dr. Emily Chen",
-      role: "Orthodontist, Perfect Smiles Orthodontics",
-      content: "The implementation was smooth and the support team is exceptional. Our dental insurance claims are processed faster and more accurately than ever before.",
-      rating: 5
+      name: "Dr. Laura Stevens",
+      role: "Dentist / Owner",
+      company: "Serene Dental Studio",
+      content: "eAssist increased our collections by 15% in six months. Their billing expertise is incredible - no more worrying about aging claims or insurance follow-ups.",
+      rating: 5,
+      avatar: "LS"
     }
   ];
 
@@ -714,7 +720,7 @@ const DentalTestimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Dental Practice Success Stories
+            Success Stories
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -723,7 +729,7 @@ const DentalTestimonials = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            What Our Dental Clients Say
+            Revenue Growth Champions
           </motion.h2>
         </div>
 
@@ -735,17 +741,37 @@ const DentalTestimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+              className="relative"
             >
-              <div className="flex mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">{testimonial.content}</p>
-              <div>
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
+              <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                {/* Quote Icon */}
+                <div className="absolute -top-4 left-8 w-8 h-8 bg-gradient-to-r from-primary to-blue-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-lg font-bold">"</span>
+                </div>
+
+                {/* Rating */}
+                <div className="flex mb-4 mt-2">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+
+                {/* Content */}
+                <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+                  {testimonial.content}
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    <div className="text-sm text-primary font-medium">{testimonial.company}</div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}

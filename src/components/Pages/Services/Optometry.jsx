@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Eye, TrendingUp, Briefcase, Users, BarChartBig, ShieldCheck, 
-         LineChart, ClipboardCheck, Clock, DollarSign, Shield, BarChart, Award,
+import { DollarSign, TrendingUp, Briefcase, Users, BarChartBig, ShieldCheck, 
+         LineChart, ClipboardCheck, Clock, Calculator, Shield, BarChart, Award,
          Code2, FileText, ArrowRight, Star, TrendingUp as TrendingUpIcon, 
-         Glasses, Zap, Heart, CheckCircle2, Play, Target, Sparkles, 
-         Layers, PieChart, Scan, Focus, Lightbulb } from "lucide-react";
+         CreditCard, Zap, Wallet, CheckCircle2, Play, Target, Sparkles, 
+         Layers, PieChart, Receipt, Banknote } from "lucide-react";
 import CountUp from '../../UI/CountUp';
 import hipaaLogo from "../../../assets/hipaa_blue-3.webp";
 import BookDemo from "../../shared/BookDemo";
@@ -60,7 +60,7 @@ const PremiumHero = () => {
               className="mb-6"
             >
               <span className="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm border border-white/10 rounded-full text-sm font-medium">
-                👁️ Advanced Vision Care
+                💰 Eye Care Revenue Excellence
               </span>
             </motion.div>
 
@@ -71,13 +71,13 @@ const PremiumHero = () => {
               className="text-5xl lg:text-7xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
-                Precision
+                Maximize
               </span>
               <br />
               <span className="text-white">Optometry</span>
               <br />
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Solutions
+                Revenue
               </span>
             </motion.h1>
 
@@ -87,7 +87,7 @@ const PremiumHero = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl"
             >
-              Transform your optometry practice with AI-powered vision analysis, comprehensive eye care billing, and intelligent optical management that enhances patient outcomes while maximizing practice profitability.
+              Transform your optometry practice profitability with AI-powered billing automation, comprehensive optical billing, and intelligent revenue cycle management that maximizes collections while streamlining administrative workflows.
             </motion.p>
 
             <motion.div
@@ -102,7 +102,7 @@ const PremiumHero = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10 flex items-center gap-2">
-                  Enhance Your Vision Care <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Boost Your Revenue <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
 
@@ -120,8 +120,8 @@ const PremiumHero = () => {
               className="flex gap-8 mt-12"
             >
               {[
-                { number: "650+", label: "Eye Care Practices" },
-                { number: "97%", label: "Vision Accuracy" },
+                { number: "650+", label: "Practices Optimized" },
+                { number: "94%", label: "First-Pass Claims" },
                 { number: "$2.2M+", label: "Revenue Enhanced" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
@@ -151,31 +151,31 @@ const PremiumHero = () => {
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl">
-                      <Eye className="w-6 h-6 text-white" />
+                      <Receipt className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white">Vision Analytics</h3>
+                    <h3 className="text-xl font-semibold text-white">Revenue Analytics</h3>
                   </div>
 
                   {/* Mock Dashboard */}
                   <div className="space-y-4">
                     <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-gray-300">Eye Exam Processing</span>
-                      <span className="text-blue-400 font-semibold">97.3%</span>
+                      <span className="text-gray-300">Claims Processing</span>
+                      <span className="text-blue-400 font-semibold">94.3%</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-gray-300">Optical Billing</span>
+                      <span className="text-gray-300">Collection Rate</span>
                       <span className="text-cyan-400 font-semibold">+38%</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-gray-300">Insurance Claims</span>
-                      <span className="text-indigo-400 font-semibold">Fast-Track</span>
+                      <span className="text-gray-300">Revenue Growth</span>
+                      <span className="text-indigo-400 font-semibold">$52.8K</span>
                     </div>
                   </div>
 
                   <div className="mt-6 p-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl">
                     <div className="flex items-center gap-2 text-blue-400 font-semibold">
                       <CheckCircle2 className="w-5 h-5" />
-                      Vision Care Certified
+                      Automated Billing
                     </div>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ const PremiumHero = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -top-4 -right-4 p-4 bg-gradient-to-r from-indigo-500/90 to-blue-500/90 backdrop-blur-xl rounded-2xl shadow-xl"
               >
-                <Focus className="w-6 h-6 text-white" />
+                <DollarSign className="w-6 h-6 text-white" />
               </motion.div>
 
               <motion.div
@@ -195,7 +195,7 @@ const PremiumHero = () => {
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
                 className="absolute -bottom-4 -left-4 p-4 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 backdrop-blur-xl rounded-2xl shadow-xl"
               >
-                <Glasses className="w-6 h-6 text-white" />
+                <TrendingUp className="w-6 h-6 text-white" />
               </motion.div>
             </div>
           </motion.div>
@@ -229,32 +229,32 @@ const PremiumHero = () => {
 const PremiumFeatures = () => {
   const features = [
     {
-      icon: <Eye className="w-8 h-8" />,
-      title: "Smart Vision Analysis",
-      description: "AI-powered eye examination with automated visual field analysis and prescription optimization.",
+      icon: <Receipt className="w-8 h-8" />,
+      title: "Optical Billing Automation",
+      description: "AI-powered eye exam and optical frame billing with integrated insurance verification and real-time eligibility checks.",
       color: "from-blue-500 to-cyan-500",
-      stats: "97.8% Accuracy"
+      stats: "94% First-Pass Rate"
     },
     {
-      icon: <Glasses className="w-8 h-8" />,
-      title: "Optical Management",
-      description: "Comprehensive frame and lens billing with automated insurance verification and claims processing.",
+      icon: <Calculator className="w-8 h-8" />,
+      title: "Smart Claims Processing",
+      description: "Intelligent claims management for vision care with automated denial prevention and rapid resubmission workflows.",
       color: "from-cyan-500 to-indigo-500",
-      stats: "seamless Integration"
+      stats: "45% Faster Processing"
     },
     {
-      icon: <Scan className="w-8 h-8" />,
-      title: "Advanced Diagnostics",
-      description: "Retinal imaging analysis with OCT billing and specialized diagnostic procedure coding.",
+      icon: <Wallet className="w-8 h-8" />,
+      title: "Revenue Optimization",
+      description: "Advanced collection strategies with automated follow-ups and intelligent payment posting for optical sales.",
       color: "from-indigo-500 to-purple-500",
-      stats: "Premium Imaging"
+      stats: "38% Revenue Boost"
     },
     {
-      icon: <Target className="w-8 h-8" />,
-      title: "Practice Optimization",
-      description: "Vision care analytics with patient tracking, appointment optimization, and revenue insights.",
+      icon: <BarChart className="w-8 h-8" />,
+      title: "Financial Analytics",
+      description: "Comprehensive revenue reporting with KPI dashboards and profitability analysis for informed financial decisions.",
       color: "from-purple-500 to-pink-500",
-      stats: "360° Vision Care"
+      stats: "360° Financial View"
     }
   ];
 
@@ -271,13 +271,13 @@ const PremiumFeatures = () => {
           className="text-center mb-16"
         >
           <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 rounded-full text-sm font-semibold">
-            Vision Care Features
+            Revenue Cycle Management
           </span>
           <h2 className="text-5xl font-bold mt-6 mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-            Next-Generation Eye Care
+            Maximize Optometry Revenue
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Advance your optometry practice with intelligent technology designed specifically for comprehensive eye care professionals
+            Streamline your eye care billing operations and boost profitability with our comprehensive revenue cycle management solution
           </p>
         </motion.div>
 
@@ -330,10 +330,10 @@ const PremiumFeatures = () => {
 // Premium Stats Section
 const PremiumStats = () => {
   const stats = [
-    { value: 97, label: "Vision Accuracy Rate", suffix: "%" },
-    { value: 38, label: "Revenue Increase", suffix: "%" },
-    { value: 45, label: "Faster Processing", suffix: "%" },
-    { value: 650, label: "Eye Care Practices", suffix: "+" }
+    { value: 94, label: "First-Pass Claims", suffix: "%" },
+    { value: 38, label: "Revenue Growth", suffix: "%" },
+    { value: 18, label: "Hours Saved Weekly", suffix: "+" },
+    { value: 650, label: "Practices Optimized", suffix: "+" }
   ];
 
   return (
@@ -361,10 +361,10 @@ const PremiumStats = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-bold text-white mb-6">
-            Outstanding Vision Care Results
+            Proven Financial Results
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Our advanced platform consistently delivers exceptional performance metrics for optometry practices
+            Our revenue cycle management platform consistently delivers outstanding financial outcomes for optometry practices
           </p>
         </motion.div>
 
@@ -400,9 +400,9 @@ const PremiumTestimonials = () => {
   const testimonials = [
     {
       name: "Dr. Amanda Foster",
-      role: "Optometrist & Practice Owner",
+      role: "Practice Manager",
       company: "Clear Vision Eye Center",
-      content: "This platform has revolutionized our eye care practice. The automated billing for both exams and optical sales has increased our efficiency by 40%.",
+      content: "The billing automation alone has saved us 18 hours per week. Our optical sales collections have improved dramatically - we've seen a 42% increase in monthly revenue.",
       rating: 5,
       avatar: "AF"
     },
@@ -410,15 +410,15 @@ const PremiumTestimonials = () => {
       name: "Robert Chen",
       role: "Practice Administrator",
       company: "Premier Vision Care",
-      content: "The optical inventory management and insurance processing features are incredible. We've seen a 35% improvement in our revenue cycle.",
+      content: "Outstanding ROI! The automated claims processing eliminated our billing backlog and reduced denied claims by 88%. Our cash flow has never been stronger.",
       rating: 5,
       avatar: "RC"
     },
     {
-      name: "Dr. Lisa Martinez",
-      role: "Ophthalmologist",
+      name: "Lisa Martinez",
+      role: "Billing Specialist",
       company: "Advanced Eye Specialists",
-      content: "Exceptional system for complex eye procedures. The diagnostic billing automation and retinal imaging integration work flawlessly.",
+      content: "This platform revolutionized our revenue cycle. The intelligent coding and real-time eligibility verification has increased our first-pass approval rate to 96%.",
       rating: 5,
       avatar: "LM"
     }
@@ -434,10 +434,10 @@ const PremiumTestimonials = () => {
           className="text-center mb-16"
         >
           <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold">
-            Vision Care Success
+            Success Stories
           </span>
           <h2 className="text-5xl font-bold mt-6 mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-            Trusted by Leading Eye Care Professionals
+            Revenue Growth Champions
           </h2>
         </motion.div>
 
@@ -517,19 +517,19 @@ const PremiumCTA = () => {
             viewport={{ once: true }}
           >
             <span className="px-6 py-3 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm border border-white/10 rounded-full text-white font-semibold">
-              👁️ Ready to Transform Your Vision Care?
+              💰 Ready to Maximize Revenue?
             </span>
             
             <h2 className="text-6xl font-bold text-white mt-8 mb-8 leading-tight">
-              Start Your Premium
+              Transform Your
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Optometry Journey
+                Revenue Cycle
               </span>
             </h2>
 
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Join hundreds of successful eye care practices who have enhanced their patient care and revenue optimization with our comprehensive vision platform.
+              Join hundreds of successful optometry practices who have maximized their profitability and streamlined their billing operations with our intelligent RCM platform.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
@@ -538,7 +538,7 @@ const PremiumCTA = () => {
                 className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl font-bold text-white text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
               >
                 <span className="flex items-center gap-3">
-                  Start Free Trial
+                  Start Maximizing Revenue
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
@@ -562,10 +562,10 @@ const PremiumCTA = () => {
                 <div className="text-left">
                   <div className="flex items-center gap-2 text-white font-semibold mb-2">
                     <Shield className="w-5 h-5 text-blue-400" />
-                    HIPAA Compliant & Vision Secure
+                    HIPAA Compliant & Secure
                   </div>
                   <p className="text-gray-300 text-sm">
-                    Enterprise-grade security with complete eye care compliance
+                    Enterprise-grade security with complete financial data compliance
                   </p>
                 </div>
               </div>
