@@ -25,7 +25,7 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     minify: 'esbuild',
-    target: 'es2015',
+    target: 'es2020',
     rollupOptions: {
       output: {
         format: 'es',
