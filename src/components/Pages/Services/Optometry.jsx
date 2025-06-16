@@ -490,6 +490,110 @@ const PremiumTestimonials = () => {
   );
 };
 
+// Premium Integrations Section
+const PremiumIntegrations = () => {
+  const integrations = [
+    { name: "EyeMD EMR", logo: "/logos/eyemdEmr.png" },
+    { name: "Compulink Advantage", logo: "/logos/compulinkAdvantage.png" },
+    { name: "RevolutionEHR", logo: "/logos/revolutionEhr.png" },
+    { name: "MaximEyes", logo: "/logos/maximEyes.png" },
+    { name: "OfficeMate", logo: "/logos/officeMate.png" },
+    { name: "ExamWRITER", logo: "/logos/examWriter.png" },
+    { name: "Crystal PM", logo: "/logos/crystalPm.png" },
+    { name: "Uprise", logo: "/logos/uprise.png" },
+    { name: "VisionWeb", logo: "/logos/visionWeb.png" },
+    { name: "First Insight", logo: "/logos/firstInsight.png" },
+    { name: "Eyefinity", logo: "/logos/eyefinity.png" },
+    { name: "ClearCare", logo: "/logos/clearCare.png" }
+  ];
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold">
+            Seamless Integrations
+          </span>
+          <h2 className="text-5xl font-bold mt-6 mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+            Our Software integrates with your optometry practice management software
+          </h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Connect with all your favorite tools and platforms to streamline your eye care practice workflow
+          </p>
+        </motion.div>
+
+        {/* Integration Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
+          {integrations.map((integration, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="group"
+            >
+              <div className="relative p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-blue-200">
+                {/* Logo Container */}
+                <div className="h-16 flex items-center justify-center mb-4">
+                  <img
+                    src={integration.logo}
+                    alt={`${integration.name} Integration`}
+                    className="max-h-12 max-w-full object-contain transition-all duration-300"
+                    onError={(e) => {
+                      // Fallback to text if image fails to load
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }}
+                  />
+                  <div 
+                    className="hidden text-gray-600 font-semibold text-center"
+                    style={{ display: 'none' }}
+                  >
+                    {integration.name}
+                  </div>
+                </div>
+
+                {/* Name */}
+                <div className="text-center">
+                  <h3 className="font-semibold text-gray-700 group-hover:text-blue-600 transition-colors duration-300">
+                    {integration.name}
+                  </h3>
+                </div>
+
+                {/* Hover Effect Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
+            <CheckCircle2 className="w-5 h-5 text-blue-600" />
+            <span className="text-blue-700 font-semibold">
+              Don't see your software? We can integrate with 200+ platforms
+            </span>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 // Premium CTA Section
 const PremiumCTA = () => {
   return (
@@ -585,6 +689,7 @@ const Optometry = () => {
       <PremiumFeatures />
       <PremiumStats />
       <PremiumTestimonials />
+      <PremiumIntegrations />
       <PremiumCTA />
     </>
   );

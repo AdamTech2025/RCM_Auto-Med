@@ -1,9 +1,12 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { getAllTestimonials } from '../../../services/testimonials';
 
-const testimonials = [
+// Fallback testimonials in case the database is not available
+const fallbackTestimonials = [
   {
+    id: 1,
     name: "Dr. Sarah Johnson, MD",
     role: "Medical Director & Family Practice Owner, Johnson Medical Center",
     specialty: "Family Medicine - 15 Years Experience",
@@ -13,6 +16,7 @@ const testimonials = [
     avatar: "SJ"
   },
   {
+    id: 2,
     name: "Mark Thompson, CPA",
     role: "Practice Administrator & Revenue Cycle Director, Thompson Healthcare Group",
     specialty: "Multi-Specialty Practice Management - 12 Years",
@@ -22,6 +26,7 @@ const testimonials = [
     avatar: "MT"
   },
   {
+    id: 3,
     name: "Dr. Emily Chen, MD",
     role: "Internal Medicine Physician & Practice Owner, Perfect Care Medical",
     specialty: "Internal Medicine & Chronic Care Management",
@@ -31,6 +36,7 @@ const testimonials = [
     avatar: "EC"
   },
   {
+    id: 4,
     name: "Jennifer Martinez, RN, BSN",
     role: "Clinical Operations Manager, Sunshine Family Practice",
     specialty: "Primary Care Practice Operations - 8 Years",
@@ -40,6 +46,7 @@ const testimonials = [
     avatar: "JM"
   },
   {
+    id: 5,
     name: "Dr. Michael Rodriguez, DO",
     role: "Pediatric Practice Owner & Medical Director, Kids Health Partners",
     specialty: "Pediatric Medicine - 20 Years Experience",
@@ -49,6 +56,7 @@ const testimonials = [
     avatar: "MR"
   },
   {
+    id: 6,
     name: "Lisa Chen, MBA",
     role: "Healthcare Finance Director, Metro Medical Associates",
     specialty: "Healthcare Financial Management - 15 Years",
@@ -59,11 +67,29 @@ const testimonials = [
   }
 ];
 
+// Main Testimonials Component
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const scrollContainerRef = useRef(null);
-  const controls = useAnimation();
+
+  // Fetch testimonials from MongoDB
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const data = await getAllTestimonials();
+        if (data && data.length > 0) {
+          setTestimonials(data);
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+        // Keep using fallback testimonials if fetch fails
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
 
   // Auto-scroll functionality
   useEffect(() => {
@@ -200,9 +226,9 @@ export default function Testimonials() {
               WebkitOverflowScrolling: 'touch',
             }}
           >
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial) => (
               <motion.div
-                key={index}
+                key={testimonial.id}
                 className="flex-shrink-0 w-96 h-auto"
                 style={{ scrollSnapAlign: 'start' }}
                 whileHover={{ scale: 1.02, y: -5 }}
@@ -227,7 +253,7 @@ export default function Testimonials() {
                         </div>
                       </div>
                       <span className="text-xs text-blue-300 bg-blue-300/20 px-2 py-1 rounded-full">
-                        5.0 Rating
+                        {testimonial.rating}.0 Rating
                       </span>
                     </div>
                     
@@ -317,7 +343,7 @@ export default function Testimonials() {
         </motion.div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
