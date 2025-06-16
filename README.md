@@ -1,3 +1,36 @@
+# RCM Auto-Med - Automated Testimonial Generation System
+
+## 🚀 Features
+
+- **AI-Powered Testimonials**: Automatically generates realistic healthcare testimonials using OpenRouter AI
+- **MongoDB Integration**: Stores and manages testimonials in MongoDB database
+- **Automated Scheduling**: Daily testimonial generation at 2 AM using cron jobs
+- **Modern UI**: Clean, responsive React interface with Tailwind CSS
+- **API Integration**: RESTful API for testimonial management
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React + Vite + Tailwind CSS
+- **Backend**: Node.js + Express
+- **Database**: MongoDB Atlas
+- **AI**: OpenRouter API (GPT-3.5-turbo)
+- **Scheduling**: Node-cron
+- **Deployment**: Vercel
+
+## 🔧 Setup
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Create `.env` file with required environment variables
+4. Run development server: `npm run dev`
+
+## 🌟 Live Demo
+
+Visit the live application to see AI-generated testimonials in action!
+
+---
+*Last updated: June 2025 - Deployment ready*
+
 # React Boilerplate with Navbar and Footer
 
 
