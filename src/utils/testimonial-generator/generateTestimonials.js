@@ -1,11 +1,9 @@
 import OpenAI from 'openai';
-import dotenv from 'dotenv';
-import { saveTestimonials } from '../../services/testimonials';
-
-dotenv.config();
+import { serverEnv } from '../../config/server-env.js';
+import { saveTestimonials } from '../../services/testimonials.js';
 
 // Check for API key with better logging
-const apiKey = process.env.VITE_OPENAI_API_KEY;
+const apiKey = serverEnv.openaiApiKey;
 console.log('API Key Status:', apiKey ? 'Present' : 'Missing');
 
 if (!apiKey) {
@@ -17,7 +15,7 @@ const openai = apiKey ? new OpenAI({
   apiKey: apiKey,
   baseURL: 'https://openrouter.ai/api/v1',
   defaultHeaders: {
-    'HTTP-Referer': 'https://your-site.com', // Required for OpenRouter
+    'HTTP-Referer': 'https://www.adambilling.com', // Required for OpenRouter
     'X-Title': 'RCM Auto-Med', // Optional, shows in rankings
   },
 }) : null;
@@ -25,8 +23,11 @@ const openai = apiKey ? new OpenAI({
 const generateTestimonial = async (specialty) => {
   try {
     if (!openai) {
+      console.log('⚠️  AI Generation: API key not configured, using fallback testimonial');
       throw new Error('API key not configured');
     }
+
+    console.log(`🤖 AI Generation: Generating testimonial for ${specialty}...`);
 
     const prompt = `Generate a concise, SEO-friendly healthcare testimonial for a ${specialty} provider. Keep it brief but impactful. Include:
     1. A realistic name with credentials (MD, DO, RN, etc.)
@@ -57,13 +58,16 @@ const generateTestimonial = async (specialty) => {
 
     const completion = await openai.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
-      model: "openai/gpt-4-turbo-preview",
+      model: "openai/gpt-3.5-turbo",
       response_format: { type: "json_object" },
     });
 
-    return JSON.parse(completion.choices[0].message.content);
+    const result = JSON.parse(completion.choices[0].message.content);
+    console.log(`✅ AI Generation: Successfully generated testimonial for ${specialty} - ${result.name}`);
+    return result;
   } catch (error) {
-    console.error('Error generating testimonial:', error);
+    console.error(`❌ AI Generation Failed for ${specialty}:`, error.message);
+    console.log(`🔄 Fallback: Using fallback testimonial for ${specialty}`);
     // Return a shorter fallback testimonial
     return {
       name: "Dr. John Smith, MD",
@@ -92,26 +96,41 @@ const specialties = [
 
 export const generateTestimonials = async (count = 6) => {
   try {
+    console.log(`🚀 Starting testimonial generation process for ${count} testimonials...`);
     const testimonials = [];
     const selectedSpecialties = specialties
       .sort(() => Math.random() - 0.5)
       .slice(0, count);
 
+    let aiGeneratedCount = 0;
+    let fallbackCount = 0;
+
     for (const specialty of selectedSpecialties) {
       const testimonial = await generateTestimonial(specialty);
+      
+      // Check if this was AI generated or fallback
+      if (testimonial.name === "Dr. John Smith, MD") {
+        fallbackCount++;
+      } else {
+        aiGeneratedCount++;
+      }
+      
       testimonials.push({
         id: testimonials.length + 1,
         ...testimonial
       });
     }
 
+    console.log(`📊 Generation Summary: ${aiGeneratedCount} AI-generated, ${fallbackCount} fallback testimonials`);
+
     // Save to MongoDB
     await saveTestimonials(testimonials);
-    console.log('Testimonials generated and saved to MongoDB successfully');
+    console.log('✅ Testimonials generated and saved to MongoDB successfully');
 
     return testimonials;
   } catch (error) {
-    console.error('Error generating testimonials:', error);
+    console.error('❌ Error generating testimonials:', error);
+    console.log('🔄 Using complete fallback system - all testimonials will be fallback');
     // Return fallback testimonials if generation fails
     const fallbackTestimonials = Array(count).fill(null).map((_, index) => ({
       id: index + 1,
@@ -123,6 +142,8 @@ export const generateTestimonials = async (count = 6) => {
       rating: 5,
       avatar: `P${index + 1}`
     }));
+
+    console.log(`📊 Fallback Summary: ${fallbackTestimonials.length} fallback testimonials created`);
 
     // Save fallback testimonials to MongoDB
     await saveTestimonials(fallbackTestimonials);

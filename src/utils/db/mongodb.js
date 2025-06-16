@@ -1,13 +1,14 @@
 import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
+import { serverEnv } from '../../config/server-env.js';
 
-dotenv.config();
-
-const uri = process.env.VITE_MONGODB_URI;
+const uri = serverEnv.mongodbUri;
 if (!uri) {
-  console.error('MONGODB_URI is not defined in environment variables');
+  console.error('VITE_MONGODB_URI is not defined in environment variables');
+  console.error('Please check your .env file and make sure VITE_MONGODB_URI is set');
   process.exit(1);
 }
+
+console.log('MongoDB URI Status:', uri ? 'Present' : 'Missing');
 
 const client = new MongoClient(uri);
 let db = null;
@@ -19,11 +20,11 @@ export async function connectToDatabase() {
     }
     
     await client.connect();
-    console.log('Connected to MongoDB');
+    console.log('✅ Connected to MongoDB successfully');
     db = client.db('rcm_auto_med');
     return db;
   } catch (error) {
-    console.error('MongoDB connection error:', error);
+    console.error('❌ MongoDB connection error:', error);
     throw error;
   }
 }
@@ -33,7 +34,7 @@ export async function closeDatabaseConnection() {
     if (client) {
       await client.close();
       db = null;
-      console.log('MongoDB connection closed');
+      console.log('🔌 MongoDB connection closed');
     }
   } catch (error) {
     console.error('Error closing MongoDB connection:', error);
