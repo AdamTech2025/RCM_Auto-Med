@@ -14,20 +14,28 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'https://www.adambilling.com',
+        target: 'http://localhost:3000',
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
       },
     },
   },
   build: {
     outDir: 'dist',
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        format: 'es',
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
   },
   define: {
     'process.env': {
-      VITE_API_URL: JSON.stringify('https://www.adambilling.com/api'),
-      VITE_DOMAIN: JSON.stringify('www.adambilling.com'),
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
     },
   },
 })

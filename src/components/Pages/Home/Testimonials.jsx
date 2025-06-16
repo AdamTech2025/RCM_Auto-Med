@@ -72,19 +72,26 @@ export default function Testimonials() {
   const [testimonials, setTestimonials] = useState(fallbackTestimonials);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const scrollContainerRef = useRef(null);
 
   // Fetch testimonials from MongoDB
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
+        setIsLoading(true);
+        setError(null);
         const data = await getAllTestimonials();
         if (data && data.length > 0) {
           setTestimonials(data);
         }
       } catch (error) {
         console.error('Error fetching testimonials:', error);
+        setError('Failed to load testimonials. Using fallback data.');
         // Keep using fallback testimonials if fetch fails
+      } finally {
+        setIsLoading(false);
       }
     };
 

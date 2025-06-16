@@ -90,4 +90,63 @@ const AppRouter = () => {
   );
 };
 
+export const routes = [
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: "contact",
+        element: <ContactUs />
+      },
+      // Service Routes
+      {
+        path: "dental",
+        element: <Dental />
+      },
+      {
+        path: "pain-management",
+        element: <Medical />
+      },
+      {
+        path: "physical-therapy",
+        element: <PhysicalTherapy />
+      },
+      {
+        path: "mental-health",
+        element: <MentalHealth />
+      },
+      {
+        path: "optometry",
+        element: <Optometry />
+      },
+      {
+        path: "chiropractic",
+        element: <Chiropractic />
+      },
+      // Other Routes
+      {
+        path: "management-services",
+        element: <ManagementServices />
+      },
+      {
+        path: "dental-cpa",
+        element: <DentalCPA />
+      },
+      {
+        path: "careers",
+        element: <Careers />
+      },
+      {
+        path: "blog",
+        element: <Blog />
+      }
+    ]
+  }
+];
+
 export default AppRouter; 
