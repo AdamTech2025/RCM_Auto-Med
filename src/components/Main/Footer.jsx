@@ -117,7 +117,7 @@ const Footer = () => {
                     <Brain className="w-6 h-6 text-white relative z-10" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-2xl font-bold text-white">Adam Rev Max</span>
+                    <span className="text-2xl font-bold text-white">Adam Billing</span>
                     <span className="text-sm text-blue-300 font-medium -mt-1 tracking-wide">AI Healthcare Solutions</span>
                   </div>
                 </Link>
@@ -233,7 +233,7 @@ const Footer = () => {
                 viewport={{ once: true }}
                 className="text-slate-300 text-sm"
               >
-                <p>&copy; {currentYear} Adam Rev Max. All rights reserved.</p>
+                <p>&copy; {currentYear} Adam Billing. All rights reserved.</p>
               </motion.div>
               
               <motion.div

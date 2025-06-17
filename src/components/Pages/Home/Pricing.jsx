@@ -57,7 +57,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Pricing
+              Adam Billing RCM Pricing
             </motion.span>
             <motion.h2 
               className="text-3xl md:text-4xl font-bold mt-2"
@@ -66,7 +66,7 @@ export default function Pricing() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Simple, Transparent Pricing
+              Transparent RCM Service Pricing
             </motion.h2>
             <motion.p
               className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
@@ -75,7 +75,7 @@ export default function Pricing() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Choose the perfect plan for your healthcare practice
+              Choose the perfect Adam Billing RCM solution for your practice size and needs
             </motion.p>
           </div>
 
@@ -88,23 +88,23 @@ export default function Pricing() {
               transition={{ delay: 0.3 }}
               className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 shadow-sm"
             >
-              <h3 className="text-2xl font-bold mb-4">Basic</h3>
+              <h3 className="text-2xl font-bold mb-4">Starter RCM</h3>
               <div className="mb-6">
-                <span className="text-4xl font-bold">$299</span>
-                <span className="text-gray-600">/month</span>
+                <span className="text-4xl font-bold">4-6%</span>
+                <span className="text-gray-600"> of collections</span>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Up to 500 claims per month
+                  Professional medical billing
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Basic AI coding assistance
+                  Claims processing & follow-up
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Standard support
+                  Basic RCM reporting
                 </li>
               </ul>
               <BookDemo variant="default" className="w-full" />
@@ -121,27 +121,27 @@ export default function Pricing() {
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                 <span className="bg-primary text-white px-3 py-1 rounded-full text-sm">Most Popular</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Pro</h3>
+              <h3 className="text-2xl font-bold mb-4">Complete RCM</h3>
               <div className="mb-6">
-                <span className="text-4xl font-bold">$599</span>
-                <span className="text-gray-600">/month</span>
+                <span className="text-4xl font-bold">3-5%</span>
+                <span className="text-gray-600"> of collections</span>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Up to 2000 claims per month
+                  Full RCM services
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Advanced AI coding & validation
+                  Denial management & appeals
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Priority support
+                  Patient billing support
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Analytics dashboard
+                  Advanced RCM analytics
                 </li>
               </ul>
               <BookDemo variant="default" className="w-full" />
@@ -155,18 +155,19 @@ export default function Pricing() {
               transition={{ delay: 0.5 }}
               className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 shadow-sm"
             >
-              <h3 className="text-2xl font-bold mb-4">Enterprise</h3>
+              <h3 className="text-2xl font-bold mb-4">Enterprise RCM</h3>
               <div className="mb-6">
                 <span className="text-4xl font-bold">Custom</span>
+                <span className="text-gray-600"> pricing</span>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Unlimited claims
+                  Multi-location RCM
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Custom AI model training
+                  Dedicated RCM team
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
@@ -174,7 +175,7 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-center gap-3 text-gray-600">
                   <Check className="text-primary" size={20} />
-                  Custom integrations
+                  Custom EHR integrations
                 </li>
               </ul>
               <BookDemo variant="default" className="w-full" />

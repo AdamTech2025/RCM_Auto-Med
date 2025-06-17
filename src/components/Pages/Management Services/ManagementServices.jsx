@@ -6,7 +6,7 @@ const services = [
   {
     icon: <BarChart2 className="w-8 h-8 text-primary" />,
     title: 'Revenue Cycle Management',
-    desc: 'End-to-end RCM solutions to maximize collections, reduce denials, and streamline your dental billing workflow.'
+    desc: 'End-to-end RCM solutions to maximize collections, reduce denials, and streamline your Adam Billing workflow.'
   },
   {
     icon: <Users className="w-8 h-8 text-primary" />,

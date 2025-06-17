@@ -76,7 +76,7 @@ const Navbar = () => {
             <Brain className="w-6 h-6 text-white relative z-10" />
           </div> */}
           <div className="flex flex-col">
-            <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Adam Rev Max</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Adam Billing</span>
             <span className="text-xs text-primary font-medium -mt-1 tracking-wide">AI Healthcare Solutions</span>
           </div>
         </NavLink>

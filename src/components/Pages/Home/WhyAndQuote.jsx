@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhyAndQuote = () => {
   const services = [
-    'Dental Billing - Billing team all USA based',
+    'Adam Billing - Billing team all USA based',
     'Patient Recare Program (new service)',
     'Dental Consulting',
     'Dental Practice Management Services',
@@ -18,7 +18,7 @@ const WhyAndQuote = () => {
         <div className="lg:pr-8">
           <h2 className="text-4xl font-serif font-bold mb-6 text-gray-100">Why we are different?</h2>
           <p className="mb-6 text-gray-300 text-lg">
-            We are the only outsourcing dental billing company which offers not
+            We are the only outsourcing Adam Billing company which offers not
             only <strong className="font-semibold text-white">dental practice management</strong> but we also offer the following:
           </p>
           <ul className="space-y-3 mb-8">
@@ -90,7 +90,7 @@ const WhyAndQuote = () => {
                 className="w-full bg-gray-600 border-gray-500 text-white rounded-md p-3 focus:ring-primary focus:border-primary appearance-none"
               >
                 <option value="" disabled selected>Select a service</option>
-                <option value="dental-billing">Dental Billing</option>
+                <option value="dental-billing">Adam Billing</option>
                 <option value="patient-recare">Patient Recare Program</option>
                 <option value="dental-consulting">Dental Consulting</option>
                 <option value="practice-management">Dental Practice Management</option>

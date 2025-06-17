@@ -13,43 +13,43 @@ import {
 const features = [
   {
     icon: <LineChart className="w-12 h-12 text-primary" />,
-    title: "Healthcare Practice Analytics",
-    description: "Track patient visits, procedure revenues, and insurance claim status in real-time with our intuitive analytics dashboard for all healthcare specialties."
+    title: "Adam Billing RCM Analytics",
+    description: "Advanced revenue cycle management reporting and analytics that track A/R aging, payer performance, and denial trends to optimize your practice's financial performance."
   },
   {
     icon: <ClipboardCheck className="w-12 h-12 text-primary" />,
-    title: "Automated Insurance Verification",
-    description: "Streamline insurance eligibility verification and benefits checking with our automated system, reducing front desk workload by 85% across all practice types."
+    title: "Medical Billing Services",
+    description: "Full-service medical billing and coding by certified professionals, ensuring accurate claim submission and maximum reimbursement for your healthcare practice."
   },
   {
     icon: <Clock className="w-12 h-12 text-primary" />,
-    title: "Faster Claims Processing",
-    description: "Reduce claim processing time by up to 75% with AI-powered validation and automated submission systems customized for your healthcare specialty."
+    title: "Claims Management",
+    description: "Comprehensive claims processing and denial management services that reduce Days in A/R by 50% and increase first-pass claim acceptance rates."
   },
   {
     icon: <DollarSign className="w-12 h-12 text-primary" />,
-    title: "Revenue Optimization",
-    description: "Maximize reimbursements with intelligent procedure coding and dynamic pricing optimization tailored to your healthcare practice needs."
+    title: "Revenue Cycle Optimization",
+    description: "Adam Billing's RCM experts analyze and optimize your entire revenue cycle, from patient registration to final payment collection and reporting."
   },
   {
     icon: <Shield className="w-12 h-12 text-primary" />,
-    title: "Healthcare Compliance Assurance",
-    description: "Stay compliant with automatic updates to medical coding rules and regulatory requirements specific to your healthcare specialty."
+    title: "HIPAA Compliant RCM",
+    description: "Secure, HIPAA-compliant revenue cycle management platform with advanced encryption and audit trails to protect patient data and ensure compliance."
   },
   {
     icon: <BarChart className="w-12 h-12 text-primary" />,
-    title: "Practice Performance Metrics",
-    description: "Track and improve key healthcare metrics including Days in AR, Clean Claim Rate, and Production-to-Collection Ratio across all specialties."
+    title: "RCM Performance Reporting",
+    description: "Detailed RCM performance metrics and KPI tracking including collection rates, denial rates, and revenue per patient across all healthcare specialties."
   },
   {
     icon: <Users className="w-12 h-12 text-primary" />,
-    title: "Patient Engagement",
-    description: "Enhance patient satisfaction with transparent billing processes and multiple payment options for all types of medical procedures and treatments."
+    title: "Patient Financial Services",
+    description: "Comprehensive patient billing and payment solutions including payment plans, online portals, and transparent billing to improve patient satisfaction."
   },
   {
     icon: <Award className="w-12 h-12 text-primary" />,
-    title: "Best-in-Class Support",
-    description: "24/7 expert support and continuous training to ensure maximum value from our healthcare practice management solution across all specialties."
+    title: "RCM Consulting & Support",
+    description: "Dedicated RCM specialists provide ongoing support, training, and strategic guidance to maximize your practice's revenue potential and operational efficiency."
   }
 ];
 
@@ -64,7 +64,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Comprehensive Healthcare Practice Features
+            Adam Billing RCM Services & Solutions
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -73,7 +73,7 @@ export default function Features() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Everything You Need for Healthcare Practice Excellence
+            Complete Revenue Cycle Management Solutions
           </motion.h2>
         </div>
 

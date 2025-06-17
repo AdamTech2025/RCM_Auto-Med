@@ -38,9 +38,9 @@ export default function Hero() {
   ];
 
   const stats = [
-    { number: "95%", label: "First-Pass Claim Rate" },
-    { number: "60%", label: "Faster Processing" },
-    { number: "18%", label: "Revenue Increase" },
+    { number: "98%", label: "Clean Claim Rate" },
+    { number: "65%", label: "Faster RCM Processing" },
+    { number: "25%", label: "Revenue Increase" },
   ];
 
   return (
@@ -108,8 +108,8 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full border border-blue-200 mb-8"
             >
-              <span className="text-blue-600 text-sm font-medium mr-2">🏆 #1 RCM Company</span>
-              <span className="text-gray-600 text-sm">Trusted by 10,000+ Practices</span>
+              <span className="text-blue-600 text-sm font-medium mr-2">🏆 Adam Billing - Premier RCM Partner</span>
+              <span className="text-gray-600 text-sm">Trusted by 10,000+ Healthcare Providers</span>
             </motion.div>
 
             {/* Main Headline */}
@@ -119,9 +119,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Transform Your Healthcare{" "}
+              Adam Billing: Expert{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                Revenue Cycle
+                RCM Solutions
               </span>
             </motion.h1>
 
@@ -132,8 +132,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Leading RCM company providing AI-powered medical billing, coding automation, 
-              and claims processing that reduces denials by 40% and accelerates payments.
+              Adam Billing delivers comprehensive Revenue Cycle Management services including medical billing, 
+              claims processing, denial management, and RCM automation that increases revenue by 25% and reduces A/R days by 60%.
             </motion.p>
 
             {/* Key Features */}
@@ -143,7 +143,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              {["AI-Powered Billing", "99.9% Uptime", "HIPAA Compliant"].map((feature, index) => (
+              {["Expert RCM Services", "Medical Billing Specialists", "HIPAA Compliant"].map((feature, index) => (
                 <div key={index} className="flex items-center bg-gray-50 rounded-full px-4 py-2 border border-gray-200">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
                   <span className="text-sm font-medium text-gray-700">{feature}</span>
@@ -162,7 +162,7 @@ export default function Hero() {
                 to="/contact"
                 className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 inline-flex items-center justify-center shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105"
               >
-                Get Free RCM Consultation
+                Get Free Adam Billing RCM Assessment
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               

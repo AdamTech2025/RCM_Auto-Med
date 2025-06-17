@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react'; // For the Read More arrow
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Loader2, RefreshCw } from 'lucide-react'; // For the Read More arrow
 import blog_main from '../../../assets/grp_2.jpg';
 import blog_1 from '../../../assets/blog/blog 1.jpeg';
 import blog_2 from '../../../assets/blog/blog 2.jpeg';
@@ -7,13 +7,14 @@ import blog_3 from '../../../assets/blog/blog 3.jpeg';
 import blog_4 from '../../../assets/blog/blog 4.jpeg';
 import blog_5 from '../../../assets/blog/blog 5.jpeg';
 import blog_6 from '../../../assets/blog/blog 6.jpeg';
+import { getAllBlogPosts } from '../../../services/blog-client.js';
 
 
 // Sample Blog Post Data
 const samplePosts = [
   {
     id: 1,
-    title: "The Future of Dental Billing: AI's Role in RCM",
+    title: "The Future of Adam Billing: AI's Role in RCM",
     date: 'October 26, 2023',
     excerpt: 'Explore how Artificial Intelligence is reshaping the landscape of dental revenue cycle management, leading to increased efficiency and accuracy.',
     imageUrl: blog_1,
@@ -29,7 +30,7 @@ const samplePosts = [
   },
   {
     id: 3,
-    title: 'Reducing Denials: AI-Powered Predictive Analytics in Dental Billing',
+    title: 'Reducing Denials: AI-Powered Predictive Analytics in Adam Billing',
     date: 'November 18, 2023',
     excerpt: 'Learn how AI-driven predictive analytics can identify potential claim denials before they happen, significantly improving your clean claim rate.',
     imageUrl: blog_3,
@@ -62,6 +63,40 @@ const samplePosts = [
 ];
 
 const Blog = () => {
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Load blog posts from database
+  const loadBlogPosts = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      console.log('🔄 Loading blog posts from database...');
+      
+      const posts = await getAllBlogPosts();
+      
+      if (posts && posts.length > 0) {
+        setBlogPosts(posts);
+        console.log(`✅ Loaded ${posts.length} blog posts from database`);
+      } else {
+        console.log('⚠️ No blog posts found in database, using fallback posts');
+        setBlogPosts(samplePosts);
+      }
+    } catch (err) {
+      console.error('❌ Error loading blog posts:', err);
+      setError('Failed to load blog posts');
+      // Use fallback sample posts if database fails
+      setBlogPosts(samplePosts);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadBlogPosts();
+  }, []);
+
   return (
     <div className="bg-white min-h-screen">
       {/* Header Section */}
@@ -96,35 +131,104 @@ const Blog = () => {
       {/* Blog Grid Section */}
       <main className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {samplePosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
-                <div className="aspect-w-16 aspect-h-9">
-                  <img 
-                    src={post.imageUrl} 
-                    alt={post.title} 
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <p className="text-sm text-gray-500 mb-1">{post.date}</p>
-                  <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600 text-sm mb-4 flex-grow">
-                    {post.excerpt}
-                  </p>
-                  <a 
-                    href={`/blog/${post.slug}`} // Assuming you'll have individual blog post pages
-                    className="inline-flex items-center text-primary hover:text-primary/80 font-medium group self-start"
-                  >
-                    Read More
-                    <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+          {/* Loading State */}
+          {loading && (
+            <div className="flex justify-center items-center py-16">
+              <Loader2 className="w-8 h-8 animate-spin text-primary mr-3" />
+              <span className="text-gray-600">Loading latest blog posts...</span>
+            </div>
+          )}
+
+          {/* Error State with Refresh Button */}
+          {error && (
+            <div className="text-center py-16">
+              <p className="text-red-600 mb-4">{error}</p>
+              <button 
+                onClick={loadBlogPosts}
+                className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+              >
+                <RefreshCw className="w-4 h-4 mr-2" />
+                Retry Loading
+              </button>
+            </div>
+          )}
+
+          {/* Blog Posts Grid */}
+          {!loading && !error && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+              {blogPosts.map((post) => (
+                <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                  <div className="aspect-w-16 aspect-h-9">
+                    <img 
+                      src={post.imageUrl} 
+                      alt={post.title} 
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
+                      <span>{post.date}</span>
+                      {post.readingTime && (
+                        <span>{post.readingTime} min read</span>
+                      )}
+                    </div>
+                    {post.category && (
+                      <div className="mb-2">
+                        <span className="inline-block bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium">
+                          {post.category}
+                        </span>
+                      </div>
+                    )}
+                    <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 text-sm mb-4 flex-grow">
+                      {post.excerpt}
+                    </p>
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mb-4">
+                        {post.tags.slice(0, 3).map((tag, index) => (
+                          <span 
+                            key={index}
+                            className="inline-block bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {post.author && (
+                      <div className="text-xs text-gray-500 mb-3">
+                        By {post.author.name}
+                        {post.author.title && `, ${post.author.title}`}
+                      </div>
+                    )}
+                    <a 
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center text-primary hover:text-primary/80 font-medium group self-start"
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+
+          {/* No Posts State */}
+          {!loading && !error && blogPosts.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-gray-600 text-lg">No blog posts available at the moment.</p>
+              <button 
+                onClick={loadBlogPosts}
+                className="mt-4 inline-flex items-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+              >
+                <RefreshCw className="w-4 h-4 mr-2" />
+                Refresh
+              </button>
+            </div>
+          )}
         </div>
       </main>
     </div>

@@ -30,7 +30,7 @@ export default function DemoCTA() {
               viewport={{ once: true }}
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-sm font-medium mb-8"
             >
-              🚀 Ready to Get Started?
+              🚀 Partner with Adam Billing Today
             </motion.div>
 
             {/* Main Heading */}
@@ -41,9 +41,9 @@ export default function DemoCTA() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Ready to Transform Your{" "}
+              Ready to Optimize Your{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                Healthcare Practice?
+                Revenue Cycle?
               </span>
             </motion.h2>
 
@@ -55,8 +55,8 @@ export default function DemoCTA() {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Join thousands of healthcare practices who have already optimized their 
-              billing and coding with our AI-powered RCM solution across all specialties.
+              Join thousands of healthcare practices who trust Adam Billing for comprehensive 
+              RCM services including medical billing, claims processing, and revenue optimization.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -73,12 +73,12 @@ export default function DemoCTA() {
                 rel="noopener noreferrer"
                 className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-10 rounded-xl text-lg transition-all duration-300 inline-flex items-center justify-center shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105"
               >
-                Try Our RCM Solution Now
+                Start Adam Billing RCM Services
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               
               <button className="group bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 font-semibold py-4 px-10 rounded-xl text-lg transition-all duration-300 inline-flex items-center justify-center border border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl">
-                Schedule Free Consultation
+                Free Adam Billing RCM Analysis
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
@@ -103,9 +103,9 @@ export default function DemoCTA() {
                     HIPAA-Compliant Security & Privacy
                   </p>
                   <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">
-                    Our healthcare practice software adheres to all HIPAA regulations, 
+                    Adam Billing's RCM platform adheres to all HIPAA regulations, 
                     ensuring your patients' information remains secure and private at all times 
-                    with enterprise-grade encryption and security protocols.
+                    with enterprise-grade encryption and comprehensive security protocols.
                   </p>
                 </div>
               </div>
@@ -121,15 +121,15 @@ export default function DemoCTA() {
             >
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">10,000+</div>
-                <div className="text-gray-600">Healthcare Practices Trust Us</div>
+                <div className="text-gray-600">Practices Trust Adam Billing</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">$2.8B+</div>
-                <div className="text-gray-600">Revenue Processed Annually</div>
+                <div className="text-3xl font-bold text-purple-600 mb-2">$3.2B+</div>
+                <div className="text-gray-600">RCM Revenue Processed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-indigo-600 mb-2">98.5%</div>
-                <div className="text-gray-600">Client Satisfaction Rate</div>
+                <div className="text-3xl font-bold text-indigo-600 mb-2">99.1%</div>
+                <div className="text-gray-600">RCM Client Satisfaction</div>
               </div>
             </motion.div>
           </motion.div>

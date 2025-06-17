@@ -23,26 +23,26 @@ const steps = [
   {
     id: "01",
     icon: <Code2 className="w-8 h-8" />,
-    title: "MEDICALCODING.AI",
-    description: "Intelligent medical coding automation that assigns CPT, ICD-10, and HCPCS codes with AI precision, understanding clinical context for improved accuracy across all specialties."
+    title: "Expert Medical Coding",
+    description: "Adam Billing's certified medical coders ensure accurate CPT, ICD-10, and HCPCS code assignment with comprehensive clinical documentation review across all specialties."
   },
   {
     id: "02",
     icon: <FileText className="w-8 h-8" />,
-    title: "MEDICALBILLING.AI",
-    description: "Smart healthcare billing solutions that automate charge capture, insurance verification, and claim generation while predicting and preventing denials for all practice types."
+    title: "Professional Medical Billing",
+    description: "Comprehensive RCM services including charge capture, insurance verification, claim submission, and denial management by Adam Billing's experienced billing specialists."
   },
   {
     id: "03",
     icon: <Shield className="w-8 h-8" />,
-    title: "COMPLIANCE.AI",
-    description: "AI-driven compliance system that analyzes medical codes against insurance rules and regulatory guidelines, ensuring audit readiness across healthcare specialties."
+    title: "RCM Compliance Management",
+    description: "Adam Billing ensures full regulatory compliance with HIPAA, Medicare, and insurance requirements while maintaining audit-ready documentation and reporting."
   },
   {
     id: "04",
     icon: <Stethoscope className="w-8 h-8" />,
-    title: "HEALTHCARE.AI",
-    description: "Smart medical data extraction using specialized language processing to support clinical documentation and decision-making across all healthcare practices."
+    title: "Revenue Cycle Analytics",
+    description: "Advanced RCM reporting and analytics that provide insights into practice performance, payer trends, and revenue optimization opportunities."
   }
 ];
 
@@ -59,7 +59,7 @@ export default function HowItWorks() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              Our Solutions
+              Adam Billing RCM Process
             </motion.span>
             <motion.h2 
               className="text-3xl md:text-4xl font-bold mt-2"
@@ -68,7 +68,7 @@ export default function HowItWorks() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              AI-Powered Healthcare Practice APIs
+              How Adam Billing Optimizes Your Revenue Cycle
             </motion.h2>
           </div>
 

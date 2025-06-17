@@ -33,7 +33,7 @@ const ContactUs = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 md:mb-20">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-gray-700 mb-4">
-            Need dental billing
+            Need Adam Billing
             <span className="font-bold text-black block sm:inline-block mt-2 sm:mt-0 sm:ml-2">Contact us now!</span>
           </h1>
         </div>
@@ -65,7 +65,7 @@ const ContactUs = () => {
             <div>
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Schedule a Consultation</h2>
               <p className="text-gray-600 mb-6 text-sm">
-                Ready to see how Adam Rev Max can transform your practice? Book a personalized demo with our experts.
+                Ready to see how Adam Billing can transform your practice? Book a personalized demo with our experts.
               </p>
               <BookDemo 
                 variant="default" 

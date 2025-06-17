@@ -4,24 +4,24 @@ import ScrollReveal from '../../UI/ScrollReveal';
 
 const benefits = [
   {
-    stat: 95,
-    title: "Healthcare Claim Approval Rate",
-    description: "Achieve industry-leading first-pass claim acceptance rates with our AI-powered validation across all healthcare specialties."
+    stat: 98,
+    title: "Clean Claim Rate",
+    description: "Adam Billing achieves industry-leading clean claim rates with expert medical coding and comprehensive claim scrubbing across all specialties."
   },
   {
-    stat: 55,
+    stat: 65,
     title: "Reduced A/R Days",
-    description: "Significantly decrease your practice's Days in A/R with automated follow-up and denial management across all healthcare specialties."
+    description: "Our RCM services significantly decrease Days in A/R through proactive denial management and aggressive follow-up on outstanding claims."
   },
   {
-    stat: 18,
-    title: "Practice Revenue Increase",
-    description: "Our healthcare clients see an average of 18% increase in revenue within the first 6 months across all specialties."
+    stat: 25,
+    title: "Revenue Increase",
+    description: "Adam Billing clients experience an average 25% increase in collections within 6 months through optimized RCM processes and expert billing."
   },
   {
-    stat: 80,
-    title: "Administrative Time Saved",
-    description: "Reduce manual billing work by up to 80% with our automated healthcare practice workflows across all specialties."
+    stat: 85,
+    title: "Administrative Cost Reduction",
+    description: "Reduce billing-related administrative costs by up to 85% by outsourcing your RCM to Adam Billing's expert team of billing professionals."
   }
 ];
 
@@ -36,7 +36,7 @@ export default function Benefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Healthcare Practice ROI & Benefits
+            Adam Billing RCM Results & ROI
           </motion.span>
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mt-2"
@@ -45,7 +45,7 @@ export default function Benefits() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Maximize Your Healthcare Practice Revenue
+            Proven Revenue Cycle Management Results
           </motion.h2>
           <motion.p
             className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
@@ -54,7 +54,7 @@ export default function Benefits() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            Our AI-powered healthcare billing solution delivers measurable results that directly impact your practice's bottom line across all specialties
+            Adam Billing's comprehensive RCM services deliver measurable results that directly increase your practice's revenue and reduce operational costs
           </motion.p>
         </div>
 
@@ -92,7 +92,7 @@ export default function Benefits() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-sm text-gray-500">*Based on average healthcare customer results after implementing our solution</p>
+          <p className="text-sm text-gray-500">*Based on average Adam Billing client results after implementing our RCM services</p>
         </motion.div>
 
         <ScrollReveal
@@ -102,7 +102,7 @@ export default function Benefits() {
           blurStrength={6}
           containerClassName="text-center py-12 mt-12"
         >
-          Trusted by leading healthcare practices worldwide to optimize their billing workflow
+          Adam Billing: Trusted by leading healthcare practices nationwide for expert RCM services
         </ScrollReveal>
       </div>
     </section>
