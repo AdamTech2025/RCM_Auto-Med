@@ -27,6 +27,18 @@ export default defineConfig({
     minify: 'esbuild',
     target: 'es2020',
     rollupOptions: {
+      external: [
+        'mongodb',
+        'node-cron',
+        'express',
+        'cors',
+        'dotenv',
+        'util',
+        'fs',
+        'path',
+        'os',
+        'crypto'
+      ],
       output: {
         format: 'es',
         entryFileNames: 'assets/[name]-[hash].js',

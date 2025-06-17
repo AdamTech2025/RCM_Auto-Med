@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { serverEnv } from '../config/server-env.js';
 import { startScheduler } from '../utils/testimonial-generator/scheduler.js';
-import { getAllTestimonials, saveTestimonials } from '../services/testimonials.js';
+import { getAllTestimonials, saveTestimonials } from '../services/testimonials-server.js';
 
 const app = express();
 const { port, domain } = serverEnv;

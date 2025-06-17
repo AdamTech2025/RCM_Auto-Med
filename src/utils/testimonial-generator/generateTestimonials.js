@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { serverEnv } from '../../config/server-env.js';
-import { saveTestimonials } from '../../services/testimonials.js';
+import { saveTestimonials } from '../../services/testimonials-server.js';
 
 // Check for API key with better logging
 const apiKey = serverEnv.openaiApiKey;

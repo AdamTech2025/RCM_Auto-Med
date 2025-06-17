@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import { getAllTestimonials } from '../../../services/testimonials';
+import { getAllTestimonials } from '../../../services/testimonials-client';
 
 // Fallback testimonials in case the database is not available
 const fallbackTestimonials = [

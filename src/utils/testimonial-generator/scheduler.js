@@ -1,6 +1,6 @@
 import cron from 'node-cron';
 import { generateTestimonials } from './generateTestimonials.js';
-import { saveTestimonials } from '../../services/testimonials.js';
+import { saveTestimonials } from '../../services/testimonials-server.js';
 import { connectToDatabase, closeDatabaseConnection } from '../db/mongodb.js';
 
 // Configuration
