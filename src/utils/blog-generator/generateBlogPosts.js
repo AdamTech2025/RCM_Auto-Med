@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { serverEnv } from '../../config/server-env.js';
-import { saveBlogPosts } from '../../services/blog-server.js';
+import { saveBlogPosts, saveDailyBlogPosts } from '../../services/blog-server.js';
 
 // Check for API key with better logging
 const apiKey = serverEnv.openaiApiKey;
@@ -186,6 +186,100 @@ export const generateBlogPosts = async (count = 6) => {
     // Save fallback blog posts to MongoDB
     await saveBlogPosts(fallbackBlogPosts);
     return fallbackBlogPosts;
+  }
+};
+
+// New function for daily blog generation - generates only 1 blog post per day
+export const generateDailyBlogPost = async () => {
+  try {
+    console.log(`🚀 Starting daily blog post generation (1 post)...`);
+    
+    // Select a random topic for today
+    const selectedTopic = blogTopics[Math.floor(Math.random() * blogTopics.length)];
+    console.log(`📝 Selected topic for today: ${selectedTopic}`);
+    
+    const blogPost = await generateBlogPost(selectedTopic);
+    
+    // Check if this was AI generated or fallback
+    const isAI = blogPost.author.name !== "Dr. Sarah Mitchell";
+    const generationType = isAI ? "🤖 AI" : "🔄 Fallback";
+    console.log(`${generationType} blog post generated: ${blogPost.title}`);
+    
+    // Get the current total count for proper ID assignment
+    const { getAllBlogPosts } = await import('../../services/blog-server.js');
+    const existingPosts = await getAllBlogPosts();
+    
+    const dailyBlogPost = {
+      id: existingPosts.length + 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      imageUrl: `/src/assets/blog/blog ${((existingPosts.length) % 6) + 1}.jpeg`,
+      ...blogPost
+    };
+
+    // Save to MongoDB using the new daily save function
+    const result = await saveDailyBlogPosts([dailyBlogPost]);
+    
+    if (result.message === 'Already generated today') {
+      console.log('✅ Daily blog post already exists for today - skipping generation');
+      return null;
+    }
+    
+    console.log('✅ Daily blog post generated and saved to MongoDB successfully');
+    return dailyBlogPost;
+    
+  } catch (error) {
+    console.error('❌ Error generating daily blog post:', error);
+    console.log('🔄 Using fallback daily blog post');
+    
+    // Return fallback blog post if generation fails
+    const currentDate = new Date().toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    
+    const selectedTopic = blogTopics[Math.floor(Math.random() * blogTopics.length)];
+    
+    // Get the current total count for proper ID assignment
+    try {
+      const { getAllBlogPosts } = await import('../../services/blog-server.js');
+      const existingPosts = await getAllBlogPosts();
+      
+      const fallbackBlogPost = {
+        id: existingPosts.length + 1,
+        title: `${selectedTopic}: Essential Guide for Healthcare Providers`,
+        excerpt: `Discover how ${selectedTopic.toLowerCase()} is transforming healthcare operations and improving revenue cycle management.`,
+        content: `${selectedTopic} has become a critical component in modern healthcare revenue cycle management. Healthcare providers are increasingly adopting advanced solutions to streamline their operations and improve financial outcomes. This comprehensive approach helps medical practices reduce administrative burden while enhancing patient care quality. By implementing strategic solutions, healthcare organizations can achieve better operational efficiency, improved cash flow, and reduced claim denials.`,
+        date: currentDate,
+        slug: selectedTopic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+        category: "RCM",
+        tags: ["RCM", "Healthcare", "Revenue Cycle", "Medical Billing"],
+        readingTime: 2,
+        author: {
+          name: "Dr. Sarah Mitchell",
+          title: "Healthcare RCM Specialist"
+        },
+        imageUrl: `/src/assets/blog/blog ${((existingPosts.length) % 6) + 1}.jpeg`,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
+
+      console.log(`📊 Fallback daily blog post created: ${fallbackBlogPost.title}`);
+
+      // Save fallback blog post to MongoDB
+      const result = await saveDailyBlogPosts([fallbackBlogPost]);
+      
+      if (result.message === 'Already generated today') {
+        console.log('✅ Daily blog post already exists for today - skipping fallback generation');
+        return null;
+      }
+      
+      return fallbackBlogPost;
+    } catch (dbError) {
+      console.error('❌ Error with fallback blog post generation:', dbError);
+      return null;
+    }
   }
 };
 

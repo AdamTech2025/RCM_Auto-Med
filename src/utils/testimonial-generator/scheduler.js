@@ -1,12 +1,12 @@
 import cron from 'node-cron';
-import { generateTestimonials } from './generateTestimonials.js';
+import { generateTestimonials, generateDailyTestimonial } from './generateTestimonials.js';
 import { saveTestimonials } from '../../services/testimonials-server.js';
 import { connectToDatabase, closeDatabaseConnection } from '../db/mongodb.js';
 
 // Configuration
 const config = {
   cronSchedule: '0 2 * * *', // Run daily at 2 AM
-  maxTestimonials: 6,
+  maxTestimonials: 1, // Changed from 6 to 1 for daily generation
   logEnabled: true
 };
 
@@ -17,7 +17,37 @@ const log = (message) => {
   }
 };
 
-// Generate and save testimonials
+// Generate and save daily testimonial (NEW - replaces generateAndSave)
+const generateDailyAndSave = async () => {
+  try {
+    log('Starting daily testimonial generation process...');
+    
+    // Connect to database
+    await connectToDatabase();
+    log('Connected to MongoDB');
+    
+    // Generate single daily testimonial
+    const testimonial = await generateDailyTestimonial();
+    
+    if (!testimonial) {
+      log('Daily testimonial already exists for today or generation failed');
+      return null;
+    }
+    
+    const isAI = testimonial.name !== "Dr. John Smith, MD" && !testimonial.name.startsWith("Dr. Provider");
+    const generationType = isAI ? "🤖 AI" : "🔄 Fallback";
+    log(`Generated daily testimonial: ${generationType}: ${testimonial.name} (${testimonial.specialty})`);
+    
+    log('Daily testimonial saved to database successfully (historical data preserved)');
+    
+    return testimonial;
+  } catch (error) {
+    console.error('Error in generateDailyAndSave:', error);
+    throw error;
+  }
+};
+
+// Legacy generate and save function (for bulk generation when needed)
 const generateAndSave = async () => {
   try {
     log('Starting testimonial generation process...');
@@ -48,28 +78,29 @@ const generateAndSave = async () => {
   }
 };
 
-// Start the scheduler
+// Start the scheduler (UPDATED for daily generation)
 const startScheduler = () => {
-  log(`Starting testimonial scheduler with cron: ${config.cronSchedule}`);
+  log(`Starting daily testimonial scheduler with cron: ${config.cronSchedule}`);
+  log('Scheduler configured for daily generation (1 testimonial per day, preserving historical data)');
   
   // Don't generate testimonials immediately on startup - only on cron schedule
-  log('Scheduler started - testimonials will be generated daily at 2 AM');
+  log('Scheduler started - daily testimonial will be generated at 2 AM');
   
   // Schedule periodic generation
   const task = cron.schedule(config.cronSchedule, async () => {
-    log('Cron job triggered - generating testimonials...');
+    log('Cron job triggered - generating daily testimonial...');
     try {
-      await generateAndSave();
-      log('Scheduled testimonial generation completed');
+      await generateDailyAndSave();
+      log('Scheduled daily testimonial generation completed');
     } catch (error) {
-      console.error('Scheduled generation failed:', error);
+      console.error('Scheduled daily testimonial generation failed:', error);
     }
   }, {
     scheduled: true,
     timezone: "America/New_York"
   });
   
-  log('Testimonial scheduler started successfully - waiting for cron trigger');
+  log('Daily testimonial scheduler started successfully - waiting for cron trigger');
   
   // Handle graceful shutdown
   process.on('SIGINT', () => {
@@ -103,21 +134,21 @@ const startScheduler = () => {
   return task;
 };
 
-// Manual trigger function for testing
+// Manual trigger function for testing (UPDATED for daily generation)
 const manualTrigger = async () => {
-  log('Manual trigger activated - generating testimonials...');
+  log('Manual trigger activated - generating daily testimonial...');
   try {
-    await generateAndSave();
-    log('Manual testimonial generation completed');
+    await generateDailyAndSave();
+    log('Manual daily testimonial generation completed');
     return true;
   } catch (error) {
-    console.error('Manual generation failed:', error);
+    console.error('Manual daily testimonial generation failed:', error);
     return false;
   }
 };
 
 // Export functions
-export { generateAndSave, startScheduler, manualTrigger, config };
+export { generateDailyAndSave, generateAndSave, startScheduler, manualTrigger, config };
 
 // Start scheduler if this file is run directly
 if (import.meta.url === `file://${process.argv[1]}`) {

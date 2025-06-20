@@ -36,6 +36,41 @@ export const saveBlogPosts = async (blogPosts) => {
   }
 };
 
+// New function for daily blog generation - appends instead of replacing
+export const saveDailyBlogPosts = async (blogPosts) => {
+  try {
+    const db = await getDb();
+    
+    // Get today's date string for duplicate checking
+    const today = new Date().toDateString();
+    
+    // Check if we already have blog posts for today
+    const existingToday = await db.collection(COLLECTION_NAME).find({
+      createdAt: {
+        $gte: new Date(today),
+        $lt: new Date(new Date(today).getTime() + 24 * 60 * 60 * 1000)
+      }
+    }).toArray();
+    
+    if (existingToday.length > 0) {
+      console.log(`Blog posts already exist for today (${today}). Skipping generation.`);
+      return { insertedCount: 0, message: 'Already generated today' };
+    }
+    
+    // Insert new blog posts without deleting existing ones
+    if (blogPosts && blogPosts.length > 0) {
+      const result = await db.collection(COLLECTION_NAME).insertMany(blogPosts);
+      console.log(`Added ${result.insertedCount} new blog posts to MongoDB (total collection now has more posts)`);
+      return result;
+    }
+    
+    return { insertedCount: 0 };
+  } catch (error) {
+    console.error('Error saving daily blog posts to MongoDB:', error);
+    throw error;
+  }
+};
+
 export const addBlogPost = async (blogPost) => {
   try {
     const db = await getDb();
