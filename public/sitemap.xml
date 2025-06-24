@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.adambilling.com/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,7 +18,7 @@
   <!-- Services Pages -->
   <url>
     <loc>https://www.adambilling.com/services</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -26,7 +26,7 @@
   <!-- Specialty Services -->
   <url>
     <loc>https://www.adambilling.com/dental</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -38,7 +38,7 @@
 
   <url>
     <loc>https://www.adambilling.com/pain-management</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -50,7 +50,7 @@
 
   <url>
     <loc>https://www.adambilling.com/physical-therapy</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -62,7 +62,7 @@
 
   <url>
     <loc>https://www.adambilling.com/mental-health</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -74,7 +74,7 @@
 
   <url>
     <loc>https://www.adambilling.com/optometry</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -86,7 +86,7 @@
 
   <url>
     <loc>https://www.adambilling.com/chiropractic</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -99,14 +99,14 @@
   <!-- Contact & Company Pages -->
   <url>
     <loc>https://www.adambilling.com/contact</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.adambilling.com/careers</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -114,7 +114,7 @@
   <!-- Blog -->
   <url>
     <loc>https://www.adambilling.com/blog</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -122,35 +122,35 @@
   <!-- Blog Posts (Sample - these would be dynamically generated) -->
   <url>
     <loc>https://www.adambilling.com/blog/revenue-cycle-management-best-practices</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.adambilling.com/blog/medical-billing-automation-benefits</loc>
-    <lastmod>2024-01-14</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.adambilling.com/blog/denial-management-strategies</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.adambilling.com/blog/hipaa-compliance-medical-billing</loc>
-    <lastmod>2024-01-12</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.adambilling.com/blog/healthcare-revenue-optimization</loc>
-    <lastmod>2024-01-11</lastmod>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
