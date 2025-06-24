@@ -1,0 +1,42 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.adambilling.com/sitemap.xml
+
+# Allow important pages
+Allow: /services
+Allow: /dental
+Allow: /pain-management
+Allow: /physical-therapy
+Allow: /mental-health
+Allow: /optometry
+Allow: /chiropractic
+Allow: /contact
+Allow: /careers
+Allow: /blog
+
+# Block development and admin paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /build/
+Disallow: /dist/
+
+# Block specific file types
+Disallow: /*.json$
+Disallow: /*.xml$ 
+Disallow: /*.txt$
+Disallow: /*.log$
+
+# Allow important static files
+Allow: /favicon.ico
+Allow: /logo.png
+Allow: /og-image*.jpg
+Allow: /manifest.json
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1 
