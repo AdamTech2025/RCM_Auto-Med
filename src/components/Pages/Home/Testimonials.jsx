@@ -1,75 +1,11 @@
 import { motion } from 'framer-motion';
-import { Star, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Play, Pause, StarHalf } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { getAllTestimonials } from '../../../services/testimonials-client';
 
-// Fallback testimonials in case the database is not available
-const fallbackTestimonials = [
-  {
-    id: 1,
-    name: "Dr. Sarah Johnson, MD",
-    role: "Medical Director & Family Practice Owner, Johnson Medical Center",
-    specialty: "Family Medicine - 15 Years Experience",
-    content: "This RCM company transformed our revenue cycle management completely. Our medical billing denials dropped from 22% to 6% within 90 days. Their AI-powered coding automation and dedicated billing specialists helped us increase collections by $180,000 annually while reducing our Days in A/R from 65 to 28 days.",
-    results: "38% increase in revenue, 65% reduction in claim denials",
-    rating: 5,
-    avatar: "SJ"
-  },
-  {
-    id: 2,
-    name: "Mark Thompson, CPA",
-    role: "Practice Administrator & Revenue Cycle Director, Thompson Healthcare Group",
-    specialty: "Multi-Specialty Practice Management - 12 Years",
-    content: "Best RCM services we've partnered with! Their comprehensive revenue cycle management solution automated our entire billing workflow. The real-time analytics dashboard provides insights into our claim status, aging reports, and payer performance. Our clean claim rate improved to 96% and staff productivity increased by 40%.",
-    results: "96% clean claim rate, 40% staff productivity increase",
-    rating: 5,
-    avatar: "MT"
-  },
-  {
-    id: 3,
-    name: "Dr. Emily Chen, MD",
-    role: "Internal Medicine Physician & Practice Owner, Perfect Care Medical",
-    specialty: "Internal Medicine & Chronic Care Management",
-    content: "Outstanding RCM company with exceptional medical billing expertise. Their HIPAA-compliant platform seamlessly integrated with our EHR system. The dedicated account manager and billing team provide transparent reporting and proactive denial management. We've seen 25% faster payment processing and improved cash flow consistency.",
-    results: "25% faster payments, improved cash flow",
-    rating: 5,
-    avatar: "EC"
-  },
-  {
-    id: 4,
-    name: "Jennifer Martinez, RN, BSN",
-    role: "Clinical Operations Manager, Sunshine Family Practice",
-    specialty: "Primary Care Practice Operations - 8 Years",
-    content: "This revenue cycle management company exceeded our expectations. Their medical coding accuracy is outstanding - 99.2% first-pass claim acceptance rate. The patient billing portal improved our patient satisfaction scores, and the automated insurance verification reduced front desk workload by 70%. Highly recommend their RCM services.",
-    results: "99.2% claim acceptance, 70% reduced workload",
-    rating: 5,
-    avatar: "JM"
-  },
-  {
-    id: 5,
-    name: "Dr. Michael Rodriguez, DO",
-    role: "Pediatric Practice Owner & Medical Director, Kids Health Partners",
-    specialty: "Pediatric Medicine - 20 Years Experience",
-    content: "Exceptional RCM partner for our pediatric practice. Their specialized knowledge of pediatric billing codes and vaccine administration billing has optimized our revenue streams. The monthly RCM reports and performance metrics help us make data-driven decisions. Revenue increased by 22% in the first year.",
-    results: "22% revenue increase, optimized vaccine billing",
-    rating: 5,
-    avatar: "MR"
-  },
-  {
-    id: 6,
-    name: "Lisa Chen, MBA",
-    role: "Healthcare Finance Director, Metro Medical Associates",
-    specialty: "Healthcare Financial Management - 15 Years",
-    content: "Top-tier revenue cycle management services. Their team of certified medical coders and billing specialists deliver consistent results. The comprehensive RCM solution includes eligibility verification, prior authorization management, and detailed financial reporting. Our net collection rate improved from 89% to 97%.",
-    results: "97% net collection rate, comprehensive RCM solution",
-    rating: 5,
-    avatar: "LC"
-  }
-];
-
 // Main Testimonials Component
 export default function Testimonials() {
-  const [testimonials, setTestimonials] = useState(fallbackTestimonials);
+  const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -85,11 +21,14 @@ export default function Testimonials() {
         const data = await getAllTestimonials();
         if (data && data.length > 0) {
           setTestimonials(data);
+        } else {
+          // No fallback testimonials - show empty state
+          setTestimonials([]);
         }
       } catch (error) {
         console.error('Error fetching testimonials:', error);
-        setError('Failed to load testimonials. Using fallback data.');
-        // Keep using fallback testimonials if fetch fails
+        setError('Failed to load testimonials from database.');
+        setTestimonials([]);
       } finally {
         setIsLoading(false);
       }
@@ -100,18 +39,18 @@ export default function Testimonials() {
 
   // Auto-scroll functionality
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || testimonials.length === 0) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, testimonials.length]);
 
   // Smooth scroll to current testimonial
   useEffect(() => {
-    if (scrollContainerRef.current) {
+    if (scrollContainerRef.current && testimonials.length > 0) {
       const container = scrollContainerRef.current;
       const cardWidth = 400; // Width of each card + gap
       const scrollLeft = currentIndex * cardWidth;
@@ -121,19 +60,90 @@ export default function Testimonials() {
         behavior: 'smooth'
       });
     }
-  }, [currentIndex]);
+  }, [currentIndex, testimonials.length]);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    if (testimonials.length > 0) {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    if (testimonials.length > 0) {
+      setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    }
   };
 
   const toggleAutoPlay = () => {
     setIsAutoPlaying(!isAutoPlaying);
   };
+
+  // Render star rating with support for half stars
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    const emptyStars = 5 - Math.ceil(rating);
+
+    return (
+      <div className="flex">
+        {[...Array(fullStars)].map((_, i) => (
+          <Star key={`full-${i}`} className="w-4 h-4 text-yellow-400 fill-current" />
+        ))}
+        {hasHalfStar && (
+          <StarHalf className="w-4 h-4 text-yellow-400 fill-current" />
+        )}
+        {[...Array(emptyStars)].map((_, i) => (
+          <Star key={`empty-${i}`} className="w-4 h-4 text-gray-400" />
+        ))}
+      </div>
+    );
+  };
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+        <div className="container mx-auto px-4 text-center">
+          <div className="animate-pulse">
+            <div className="h-8 bg-white/20 rounded-lg w-64 mx-auto mb-4"></div>
+            <div className="h-12 bg-white/20 rounded-lg w-96 mx-auto mb-8"></div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="bg-white/10 rounded-2xl p-8 h-64"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Empty state when no testimonials
+  if (!testimonials || testimonials.length === 0) {
+    return (
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-12"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Client Testimonials Coming Soon
+            </h2>
+            <p className="text-slate-300 mb-6">
+              We're gathering authentic reviews from our healthcare partners. 
+              Check back soon to see real success stories from practices using our RCM services.
+            </p>
+            <div className="text-sm text-blue-300">
+              {error && `Error: ${error}`}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
@@ -235,7 +245,7 @@ export default function Testimonials() {
           >
             {testimonials.map((testimonial) => (
               <motion.div
-                key={testimonial.id}
+                key={testimonial.id || testimonial._id}
                 className="flex-shrink-0 w-96 h-auto"
                 style={{ scrollSnapAlign: 'start' }}
                 whileHover={{ scale: 1.02, y: -5 }}
@@ -251,37 +261,37 @@ export default function Testimonials() {
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center">
                         <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm mr-4">
-                          {testimonial.avatar}
+                          {testimonial.avatar || testimonial.name?.substring(0, 2).toUpperCase()}
                         </div>
-                        <div className="flex">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                          ))}
-                        </div>
+                        {renderStars(testimonial.rating || 4.5)}
                       </div>
                       <span className="text-xs text-blue-300 bg-blue-300/20 px-2 py-1 rounded-full">
-                        {testimonial.rating}.0 Rating
+                        {testimonial.rating || 4.5} Rating
                       </span>
                     </div>
                     
                     {/* Testimonial content */}
                     <blockquote className="text-white/90 mb-6 leading-relaxed text-sm">
-                      "{testimonial.content}"
+                      "{testimonial.content || testimonial.review}"
                     </blockquote>
                     
                     {/* Results highlight */}
-                    <div className="bg-gradient-to-r from-green-400/20 to-blue-400/20 border border-green-400/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
-                      <p className="text-green-300 font-semibold text-xs mb-1">Key Results:</p>
-                      <p className="text-green-200 text-xs">{testimonial.results}</p>
-                    </div>
+                    {testimonial.results && (
+                      <div className="bg-gradient-to-r from-green-400/20 to-blue-400/20 border border-green-400/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
+                        <p className="text-green-300 font-semibold text-xs mb-1">Key Results:</p>
+                        <p className="text-green-200 text-xs">{testimonial.results}</p>
+                      </div>
+                    )}
                     
                     {/* Author info */}
                     <div className="border-t border-white/20 pt-4">
                       <p className="font-bold text-white mb-1 text-sm">{testimonial.name}</p>
-                      <p className="text-xs text-slate-300 mb-2">{testimonial.role}</p>
-                      <p className="text-xs text-blue-300 bg-blue-300/20 px-2 py-1 rounded-full inline-block">
-                        {testimonial.specialty}
-                      </p>
+                      <p className="text-xs text-slate-300 mb-2">{testimonial.role || testimonial.position}</p>
+                      {testimonial.specialty && (
+                        <p className="text-xs text-blue-300 bg-blue-300/20 px-2 py-1 rounded-full inline-block">
+                          {testimonial.specialty}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -317,20 +327,20 @@ export default function Testimonials() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
             <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20">
               <h3 className="text-2xl font-bold text-white mb-6">
-                Trusted by 10,000+ Healthcare Providers Nationwide
+                Trusted by Healthcare Providers Nationwide
               </h3>
               <div className="grid md:grid-cols-4 gap-8 text-center">
                 <div className="group">
                   <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
-                    98.5%
+                    4.8/5
                   </div>
-                  <div className="text-sm text-slate-300">Client Satisfaction Rate</div>
+                  <div className="text-sm text-slate-300">Average Client Rating</div>
                 </div>
                 <div className="group">
                   <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
-                    $2.8B+
+                    500+
                   </div>
-                  <div className="text-sm text-slate-300">Revenue Processed Annually</div>
+                  <div className="text-sm text-slate-300">Healthcare Practices Served</div>
                 </div>
                 <div className="group">
                   <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">

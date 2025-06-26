@@ -20,6 +20,16 @@ const openai = apiKey ? new OpenAI({
   },
 }) : null;
 
+// Generate realistic rating between 4-5 (whole numbers only)
+const generateRealisticRating = () => {
+  // Weight heavily towards 4-star ratings, with fewer 5-star ratings
+  const weightedRatings = [
+    ...Array(7).fill(4), // 4★ (most common - 70%)
+    ...Array(3).fill(5)  // 5★ (less common - 30%)
+  ];
+  return weightedRatings[Math.floor(Math.random() * weightedRatings.length)];
+};
+
 const generateTestimonial = async (specialty) => {
   try {
     if (!openai) {
@@ -29,21 +39,25 @@ const generateTestimonial = async (specialty) => {
 
     console.log(`🤖 AI Generation: Generating testimonial for ${specialty}...`);
 
-    const prompt = `Generate a concise, SEO-friendly healthcare testimonial for a ${specialty} provider. Keep it brief but impactful. Include:
-    1. A realistic name with credentials (MD, DO, RN, etc.)
-    2. Their role and practice name (keep it short)
-    3. Their specialty and years of experience (one line)
-    4. A brief testimonial about RCM services (2-3 sentences max)
-    5. Key results (one line with specific numbers)
-    6. A rating (always 5)
-    7. Two initials for avatar
+    const realisticRating = generateRealisticRating();
 
-    Important SEO guidelines:
-    - Use natural, conversational language
-    - Include relevant keywords: RCM, revenue cycle management, medical billing, healthcare
-    - Keep content concise and scannable
-    - Focus on specific results and numbers
-    - Make it authentic and relatable
+    const prompt = `Generate a realistic, authentic healthcare testimonial for a ${specialty} provider. Make it feel genuine and natural, not overly promotional. Include:
+    
+    1. A realistic name with appropriate credentials (MD, DO, RN, BSN, CPA, etc.)
+    2. Their role and practice name (make it believable, not too fancy)
+    3. Their specialty and years of experience (realistic range: 5-20 years)
+    4. An honest testimonial about RCM services (2-3 sentences, mention specific benefits but keep it conversational)
+    5. Realistic key results (use believable numbers, not exaggerated claims)
+    6. A rating of exactly ${realisticRating} (this should reflect the content - if rating is 4.2, mention minor areas for improvement)
+    7. Two initials for avatar based on the name
+
+    Important guidelines:
+    - Sound like a real healthcare professional, not a marketing copy
+    - Include specific but realistic improvements (10-35% increases, not 100%+)
+    - If rating is below 5.0, subtly mention why (e.g., "still room for improvement in..." or "initially had some challenges but...")
+    - Use professional but conversational language
+    - Include relevant keywords naturally: RCM, revenue cycle management, medical billing, claims processing
+    - Make practice names sound realistic (avoid "Perfect" or "Ultimate" type names)
 
     Format the response as a JSON object with these fields:
     {
@@ -52,7 +66,7 @@ const generateTestimonial = async (specialty) => {
       "specialty": "",
       "content": "",
       "results": "",
-      "rating": 5,
+      "rating": ${realisticRating},
       "avatar": ""
     }`;
 
@@ -63,20 +77,29 @@ const generateTestimonial = async (specialty) => {
     });
 
     const result = JSON.parse(completion.choices[0].message.content);
-    console.log(`✅ AI Generation: Successfully generated testimonial for ${specialty} - ${result.name}`);
+    // Ensure the rating matches what we requested
+    result.rating = realisticRating;
+    
+    console.log(`✅ AI Generation: Successfully generated testimonial for ${specialty} - ${result.name} (${result.rating}★)`);
     return result;
   } catch (error) {
     console.error(`❌ AI Generation Failed for ${specialty}:`, error.message);
     console.log(`🔄 Fallback: Using fallback testimonial for ${specialty}`);
-    // Return a shorter fallback testimonial
+    
+    // Return a realistic fallback testimonial with varied rating
+    const fallbackRating = generateRealisticRating();
+    const fallbackContent = fallbackRating < 5.0 
+      ? "This RCM company has significantly improved our practice efficiency. Their revenue cycle management solution streamlined our billing processes, though we initially had some integration challenges that were eventually resolved."
+      : "This RCM company has transformed our practice's efficiency. Their comprehensive revenue cycle management solution streamlined our billing processes and improved collections significantly.";
+    
     return {
-      name: "Dr. John Smith, MD",
-      role: "Medical Director, Smith Medical Center",
-      specialty: `${specialty} - 10 Years Experience`,
-      content: "This RCM company has transformed our practice's efficiency. Their comprehensive revenue cycle management solution streamlined our billing processes and improved collections significantly.",
-      results: "30% increase in collections, 40% reduction in denials",
-      rating: 5,
-      avatar: "JS"
+      name: "Dr. Sarah Johnson, MD",
+      role: "Medical Director, Johnson Family Practice",
+      specialty: `${specialty} - 12 Years Experience`,
+      content: fallbackContent,
+      results: fallbackRating < 5.0 ? "25% increase in collections, 30% reduction in denials" : "30% increase in collections, 40% reduction in denials",
+      rating: fallbackRating,
+      avatar: "SJ"
     };
   }
 };
@@ -109,7 +132,7 @@ export const generateTestimonials = async (count = 6) => {
       const testimonial = await generateTestimonial(specialty);
       
       // Check if this was AI generated or fallback
-      if (testimonial.name === "Dr. John Smith, MD") {
+      if (testimonial.name === "Dr. Sarah Johnson, MD") {
         fallbackCount++;
       } else {
         aiGeneratedCount++;
@@ -122,6 +145,7 @@ export const generateTestimonials = async (count = 6) => {
     }
 
     console.log(`📊 Generation Summary: ${aiGeneratedCount} AI-generated, ${fallbackCount} fallback testimonials`);
+    console.log(`⭐ Rating Distribution: ${testimonials.map(t => t.rating).join(', ')}`);
 
     // Save to MongoDB
     await saveTestimonials(testimonials);
@@ -131,19 +155,28 @@ export const generateTestimonials = async (count = 6) => {
   } catch (error) {
     console.error('❌ Error generating testimonials:', error);
     console.log('🔄 Using complete fallback system - all testimonials will be fallback');
-    // Return fallback testimonials if generation fails
-    const fallbackTestimonials = Array(count).fill(null).map((_, index) => ({
-      id: index + 1,
-      name: `Dr. Provider ${index + 1}, MD`,
-      role: `Medical Director, Provider ${index + 1} Medical Center`,
-      specialty: `${specialties[index % specialties.length]} - 10 Years Experience`,
-      content: "This RCM company has been instrumental in improving our practice's efficiency. Their comprehensive revenue cycle management solution has helped us streamline our billing processes and improve our collections.",
-      results: "30% increase in collections, 40% reduction in claim denials",
-      rating: 5,
-      avatar: `P${index + 1}`
-    }));
+    
+    // Return realistic fallback testimonials with varied ratings
+    const fallbackTestimonials = Array(count).fill(null).map((_, index) => {
+      const rating = generateRealisticRating();
+      const content = rating < 5.0 
+        ? "This RCM company has been helpful in improving our practice efficiency. Their revenue cycle management solution has streamlined our billing processes, though there's still room for improvement in some areas."
+        : "This RCM company has been instrumental in improving our practice's efficiency. Their comprehensive revenue cycle management solution has helped us streamline our billing processes and improve our collections.";
+      
+      return {
+        id: index + 1,
+        name: `Dr. Provider ${index + 1}, MD`,
+        role: `Medical Director, ${specialties[index % specialties.length]} Associates`,
+        specialty: `${specialties[index % specialties.length]} - ${8 + Math.floor(Math.random() * 12)} Years Experience`,
+        content: content,
+        results: rating < 5.0 ? "20% increase in collections, 25% reduction in claim denials" : "30% increase in collections, 40% reduction in claim denials",
+        rating: rating,
+        avatar: `P${index + 1}`
+      };
+    });
 
     console.log(`📊 Fallback Summary: ${fallbackTestimonials.length} fallback testimonials created`);
+    console.log(`⭐ Fallback Rating Distribution: ${fallbackTestimonials.map(t => t.rating).join(', ')}`);
 
     // Save fallback testimonials to MongoDB
     await saveTestimonials(fallbackTestimonials);
@@ -163,9 +196,9 @@ export const generateDailyTestimonial = async () => {
     const testimonial = await generateTestimonial(selectedSpecialty);
     
     // Check if this was AI generated or fallback
-    const isAI = testimonial.name !== "Dr. John Smith, MD";
+    const isAI = testimonial.name !== "Dr. Sarah Johnson, MD";
     const generationType = isAI ? "🤖 AI" : "🔄 Fallback";
-    console.log(`${generationType} testimonial generated: ${testimonial.name}`);
+    console.log(`${generationType} testimonial generated: ${testimonial.name} (${testimonial.rating}★)`);
     
     // Get the current total count for proper ID assignment
     const { getAllTestimonials } = await import('../../services/testimonials-server.js');
@@ -193,28 +226,32 @@ export const generateDailyTestimonial = async () => {
     console.error('❌ Error generating daily testimonial:', error);
     console.log('🔄 Using fallback daily testimonial');
     
-    // Return fallback testimonial if generation fails
+    // Return realistic fallback testimonial if generation fails
     const selectedSpecialty = specialties[Math.floor(Math.random() * specialties.length)];
+    const fallbackRating = generateRealisticRating();
     
-    // Get the current total count for proper ID assignment
     try {
       const { getAllTestimonials } = await import('../../services/testimonials-server.js');
       const existingTestimonials = await getAllTestimonials();
       
+      const fallbackContent = fallbackRating < 5.0 
+        ? "This RCM company has improved our practice efficiency. Their revenue cycle management solution streamlined our billing processes, though we had some initial setup challenges that were resolved over time."
+        : "This RCM company has transformed our practice's efficiency. Their comprehensive revenue cycle management solution streamlined our billing processes and improved collections significantly.";
+      
       const fallbackTestimonial = {
         id: existingTestimonials.length + 1,
-        name: "Dr. John Smith, MD",
-        role: "Medical Director, Smith Medical Center",
-        specialty: `${selectedSpecialty} - 10 Years Experience`,
-        content: "This RCM company has transformed our practice's efficiency. Their comprehensive revenue cycle management solution streamlined our billing processes and improved collections significantly.",
-        results: "30% increase in collections, 40% reduction in denials",
-        rating: 5,
-        avatar: "JS",
+        name: "Dr. Sarah Johnson, MD",
+        role: "Medical Director, Johnson Family Practice",
+        specialty: `${selectedSpecialty} - ${8 + Math.floor(Math.random() * 12)} Years Experience`,
+        content: fallbackContent,
+        results: fallbackRating < 5.0 ? "22% increase in collections, 28% reduction in denials" : "30% increase in collections, 40% reduction in denials",
+        rating: fallbackRating,
+        avatar: "SJ",
         createdAt: new Date(),
         updatedAt: new Date()
       };
 
-      console.log(`📊 Fallback daily testimonial created: ${fallbackTestimonial.name} (${selectedSpecialty})`);
+      console.log(`📊 Fallback daily testimonial created: ${fallbackTestimonial.name} (${selectedSpecialty}) - ${fallbackRating}★`);
 
       // Save fallback testimonial to MongoDB
       const result = await saveDailyTestimonials([fallbackTestimonial]);

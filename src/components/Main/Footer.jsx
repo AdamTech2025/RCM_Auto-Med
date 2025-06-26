@@ -96,7 +96,7 @@ const Footer = () => {
     {
       icon: Mail,
       title: "Email",
-      content: ["techtitanadamtechnologies.in"]
+      content: ["sales@adambilling.com"]
     },
     {
       icon: Clock,
